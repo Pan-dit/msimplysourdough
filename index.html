@@ -7,15 +7,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=EB+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --flour-cream: #fdfaf6;
-            --crust-brown: #8b5a2b;
-            --loaf-brown: #5d4037;
+            --charcoal: #1a1a1a;
+            --dark-slate: #242424;
+            --deep-bronze: #8b5a2b;
             --wheat-gold: #dda15e;
-            --deep-earth: #283618;
-            --soft-white: #ffffff;
-            --accent-green: #606c38;
-            --shadow-subtle: 0 10px 40px rgba(93, 64, 55, 0.08);
-            --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --flour-white: #fdfaf6;
+            --muted-text: #a0a0a0;
+            --accent-green: #7d8b4e;
+            --shadow-deep: 0 20px 60px rgba(0,0,0,0.5);
+            --transition-smooth: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         * {
@@ -26,160 +26,171 @@
         body {
             font-family: 'EB Garamond', serif;
             line-height: 1.7;
-            color: var(--loaf-brown);
+            color: var(--flour-white);
             margin: 0;
             padding: 0;
-            background-color: var(--flour-cream);
+            /* Cast Iron / Dark Wood Texture */
+            background-color: var(--charcoal);
+            background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
             overflow-x: hidden;
         }
 
         /* Animations */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .animate-in {
-            animation: fadeIn 1s var(--transition-smooth) forwards;
+            animation: fadeIn 1.2s var(--transition-smooth) forwards;
         }
 
         /* Hero Header */
         header {
             text-align: center;
-            padding: 100px 20px;
-            background: linear-gradient(rgba(253, 250, 246, 0.9), rgba(253, 250, 246, 0.9)), 
-                        url('https://www.transparenttextures.com/patterns/natural-paper.png');
-            border-bottom: 1px solid rgba(221, 161, 94, 0.3);
+            padding: 120px 20px;
+            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.9)), 
+                        url('https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&q=80&w=1600') center/cover no-repeat;
+            border-bottom: 1px solid rgba(221, 161, 94, 0.2);
             position: relative;
+            box-shadow: var(--shadow-deep);
         }
 
         h1 {
             font-family: 'Playfair Display', serif;
-            color: var(--crust-brown);
-            font-size: clamp(3rem, 10vw, 5rem);
+            color: var(--wheat-gold);
+            font-size: clamp(3.5rem, 12vw, 6rem);
             margin: 0;
             font-weight: 900;
-            letter-spacing: -2px;
-            line-height: 1;
+            letter-spacing: -3px;
+            line-height: 0.9;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.5);
         }
 
         .tagline {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: clamp(1.2rem, 4vw, 1.8rem);
-            color: var(--accent-green);
-            margin: 10px 0 30px;
+            font-size: clamp(1.4rem, 5vw, 2.2rem);
+            color: var(--flour-white);
+            margin: 20px 0 40px;
+            opacity: 0.9;
         }
 
         .contact-bar {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
             font-family: 'Montserrat', sans-serif;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.8rem;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
             font-weight: 600;
         }
 
         .contact-bar a {
-            color: var(--loaf-brown);
+            color: var(--flour-white);
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 12px 28px;
             border: 1px solid var(--wheat-gold);
-            border-radius: 50px;
+            border-radius: 4px;
             transition: var(--transition-smooth);
+            background: rgba(0,0,0,0.2);
         }
 
         .contact-bar a:hover {
             background: var(--wheat-gold);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(221, 161, 94, 0.3);
+            color: var(--charcoal);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(221, 161, 94, 0.2);
         }
 
         /* Main Content */
         main {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 80px 20px;
         }
 
         .section-label {
             text-align: center;
             font-family: 'Montserrat', sans-serif;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 6px;
             color: var(--wheat-gold);
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             display: block;
+            opacity: 0.8;
         }
 
         section {
-            margin-bottom: 80px;
+            margin-bottom: 120px;
         }
 
         .signature-card {
-            background: var(--soft-white);
-            padding: 60px;
-            border-radius: 20px;
-            box-shadow: var(--shadow-subtle);
+            background: var(--dark-slate);
+            background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+            padding: 80px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-deep);
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
             align-items: center;
-            border: 1px solid rgba(221, 161, 94, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .signature-info h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            margin: 0 0 20px;
-            color: var(--deep-earth);
+            font-size: 3.5rem;
+            margin: 0 0 25px;
+            color: var(--wheat-gold);
+            line-height: 1.1;
         }
 
         .signature-info p {
-            font-size: 1.4rem;
-            margin-bottom: 30px;
+            font-size: 1.6rem;
+            margin-bottom: 40px;
+            color: rgba(255,255,255,0.8);
         }
 
         .price-hero {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 900;
-            color: var(--crust-brown);
+            color: var(--flour-white);
+            margin-bottom: 30px;
         }
 
         /* Menu Grid */
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
         }
 
         .menu-card {
-            background: var(--soft-white);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: var(--shadow-subtle);
+            background: var(--dark-slate);
+            background-image: url('https://www.transparenttextures.com/patterns/black-paper.png');
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-deep);
             transition: var(--transition-smooth);
-            border: 1px solid rgba(221, 161, 94, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.03);
             position: relative;
-            overflow: hidden;
         }
 
         .menu-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(93, 64, 55, 0.12);
+            transform: scale(1.02);
+            border-color: var(--wheat-gold);
         }
 
         .menu-card h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin: 0 0 10px;
-            color: var(--crust-brown);
+            font-size: 2.4rem;
+            margin: 0 0 15px;
+            color: var(--wheat-gold);
         }
 
         .menu-card .price {
@@ -187,8 +198,9 @@
             font-weight: 600;
             color: var(--accent-green);
             display: block;
-            margin-bottom: 25px;
-            font-size: 1.1rem;
+            margin-bottom: 35px;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
         }
 
         .flavor-list {
@@ -198,73 +210,72 @@
         }
 
         .flavor-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid #f5f0e8;
-            font-size: 1.15rem;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 1.25rem;
             display: flex;
             align-items: center;
+            color: rgba(255,255,255,0.9);
         }
 
         .flavor-list li::before {
-            content: "•";
-            color: var(--wheat-gold);
-            font-weight: bold;
-            display: inline-block; 
-            width: 1em;
-            margin-left: 0;
+            content: "◆";
+            color: var(--deep-bronze);
+            font-size: 0.8rem;
+            margin-right: 15px;
         }
 
         .note {
-            margin-top: 20px;
-            font-size: 0.9rem;
+            margin-top: 30px;
+            font-size: 1rem;
             font-style: italic;
-            color: #888;
+            color: var(--muted-text);
         }
 
         /* CTA Button */
         .order-btn {
             display: inline-block;
-            background: var(--deep-earth);
-            color: white;
+            background: var(--wheat-gold);
+            color: var(--charcoal);
             text-decoration: none;
-            padding: 18px 40px;
-            border-radius: 50px;
+            padding: 20px 45px;
+            border-radius: 4px;
             font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            letter-spacing: 2px;
+            font-weight: 700;
+            letter-spacing: 3px;
             text-transform: uppercase;
             font-size: 0.9rem;
-            margin-top: 40px;
+            margin-top: 50px;
             transition: var(--transition-smooth);
-            box-shadow: 0 10px 20px rgba(40, 54, 24, 0.2);
         }
 
         .order-btn:hover {
-            background: var(--crust-brown);
-            transform: scale(1.05);
-            box-shadow: 0 15px 30px rgba(139, 90, 43, 0.3);
+            background: var(--flour-white);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(221, 161, 94, 0.4);
         }
 
         footer {
             text-align: center;
-            padding: 100px 20px;
-            background: var(--deep-earth);
-            color: var(--flour-cream);
-            margin-top: 80px;
+            padding: 120px 20px;
+            background: #0d0d0d;
+            border-top: 1px solid rgba(221, 161, 94, 0.1);
         }
 
         .footer-logo {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 10px;
+            font-size: 2.5rem;
+            color: var(--wheat-gold);
+            margin-bottom: 15px;
             display: block;
+            letter-spacing: -1px;
         }
 
         /* Responsive */
-        @media (max-width: 800px) {
-            .signature-card { grid-template-columns: 1fr; padding: 40px 20px; text-align: center; }
-            h1 { font-size: 3rem; }
-            header { padding: 60px 20px; }
+        @media (max-width: 900px) {
+            .signature-card { grid-template-columns: 1fr; padding: 40px; text-align: center; }
+            h1 { font-size: 3.5rem; }
+            header { padding: 80px 20px; }
         }
     </style>
 </head>
@@ -272,9 +283,9 @@
     <header>
         <div class="animate-in">
             <h1>M's Simply Sourdough</h1>
-            <p class="tagline">Traditional Heart, Artisanal Soul</p>
+            <p class="tagline">Artisanal Hearth Bread • Cedar City</p>
             <div class="contact-bar">
-                <a href="tel:4355597334">Call or Text: (435) 559-7334</a>
+                <a href="tel:4355597334">(435) 559-7334</a>
                 <a href="mailto:MSimplySourdough@gmail.com">MSimplySourdough@gmail.com</a>
             </div>
         </div>
@@ -282,26 +293,26 @@
 
     <main>
         <section class="animate-in">
-            <span class="section-label">Our Classic</span>
+            <span class="section-label">Masterpiece</span>
             <div class="signature-card">
-                <div class="signature-image" style="background: url('https://images.unsplash.com/photo-1585478259715-876acc5be8eb?auto=format&fit=crop&q=80&w=600') center/cover; height: 350px; border-radius: 10px;"></div>
+                <div class="signature-image" style="background: url('https://images.unsplash.com/photo-1585478259715-876acc5be8eb?auto=format&fit=crop&q=80&w=800') center/cover; height: 450px; border-radius: 4px; box-shadow: 0 0 40px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);"></div>
                 <div class="signature-info">
-                    <h2>Plain Sourdough Loaf</h2>
-                    <p>Our signature, 24-hour fermented loaf. Simple ingredients, complex flavor, and the perfect shatter-crisp crust.</p>
+                    <h2>The Original Signature</h2>
+                    <p>A masterclass in fermentation. Flour, water, sea salt, and 24 hours of patience create a deep, caramelized crust and an airy, wild crumb.</p>
                     <div class="price-hero">$8.00</div>
-                    <a href="mailto:MSimplySourdough@gmail.com?subject=Order: Plain Sourdough Loaf" class="order-btn">Pre-Order Now</a>
+                    <a href="mailto:MSimplySourdough@gmail.com?subject=Order: Plain Sourdough Loaf" class="order-btn">Reserve a Loaf</a>
                 </div>
             </div>
         </section>
 
         <section class="animate-in">
-            <span class="section-label">The Menu</span>
-            <h2 style="text-align: center;">Specialty Creations</h2>
+            <span class="section-label">Specialties</span>
+            <h2 style="text-align: center; font-family: 'Playfair Display'; font-size: 3rem; margin-bottom: 60px; color: var(--flour-white);">Specialty Infusions</h2>
             <div class="menu-grid">
                 <!-- Savory Card -->
                 <div class="menu-card">
-                    <h3>Savory Loaves</h3>
-                    <span class="price">$12.00 per loaf</span>
+                    <h3>Savory Infusions</h3>
+                    <span class="price">$12.00 • Artisanal</span>
                     <ul class="flavor-list">
                         <li>Classic Jalapeno & Cheddar</li>
                         <li>Jalapeno, Bacon & Cheddar</li>
@@ -311,13 +322,13 @@
                         <li>Buffalo Jalapeno Popper</li>
                         <li>Pepperjack</li>
                     </ul>
-                    <a href="mailto:MSimplySourdough@gmail.com?subject=Order: Savory Loaf" class="order-btn" style="padding: 12px 25px; font-size: 0.7rem; margin-top: 25px;">Order Savory</a>
+                    <a href="mailto:MSimplySourdough@gmail.com?subject=Order: Savory Loaf" class="order-btn" style="padding: 15px 30px; font-size: 0.75rem; width: 100%; text-align: center;">Order Savory</a>
                 </div>
 
                 <!-- Sweet Card -->
                 <div class="menu-card">
-                    <h3>Sweet Loaves</h3>
-                    <span class="price">$12.00 per loaf</span>
+                    <h3>Sweet Infusions</h3>
+                    <span class="price">$12.00 • Artisanal</span>
                     <ul class="flavor-list">
                         <li>Double Chocolate</li>
                         <li>Raspberry Cream Cheese</li>
@@ -325,8 +336,8 @@
                         <li>Cinnamon Brown Sugar Swirl</li>
                         <li>Lemon Blueberry</li>
                     </ul>
-                    <p class="note">* Cinnamon Swirl can be ordered with apples upon request</p>
-                    <a href="mailto:MSimplySourdough@gmail.com?subject=Order: Sweet Loaf" class="order-btn" style="padding: 12px 25px; font-size: 0.7rem; margin-top: 25px;">Order Sweet</a>
+                    <p class="note">◆ Cinnamon Swirl can be ordered with apples upon request</p>
+                    <a href="mailto:MSimplySourdough@gmail.com?subject=Order: Sweet Loaf" class="order-btn" style="padding: 15px 30px; font-size: 0.75rem; width: 100%; text-align: center;">Order Sweet</a>
                 </div>
             </div>
         </section>
@@ -334,8 +345,8 @@
 
     <footer>
         <span class="footer-logo">M's Simply Sourdough</span>
-        <p>Fresh from Cedar City, Utah</p>
-        <p style="opacity: 0.5; font-size: 0.8rem; margin-top: 40px;">&copy; 2026 Pan-dit | Built for Artisans</p>
+        <p style="color: var(--muted-text); font-family: 'Montserrat'; letter-spacing: 2px;">HANDCRAFTED IN CEDAR CITY, UTAH</p>
+        <p style="opacity: 0.3; font-size: 0.8rem; margin-top: 60px; color: var(--flour-white);">&copy; 2026 PAN-DIT | PRESTIGE BAKERY DESIGN</p>
     </footer>
 </body>
 </html>
