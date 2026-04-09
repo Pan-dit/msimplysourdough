@@ -4,191 +4,177 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>M's Simply Sourdough | Cedar City Artisanal Bakery</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --bg:          #020205;
       --gold:        #e5b567;
-      --gold-glow:   rgba(229,181,103,0.3);
+      --gold-glow:   rgba(229,181,103,0.25);
       --glass:       rgba(15, 15, 25, 0.96);
       --border:      rgba(255, 255, 255, 0.1);
-      --r-md:        16px;
+      --text:        #ffffff;
     }
 
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Outfit', sans-serif;
       background: var(--bg);
-      color: #ffffff;
+      color: var(--text);
       min-height: 100vh;
       overflow-x: hidden;
       line-height: 1.4;
-      font-size: 14px;
+      -webkit-font-smoothing: antialiased;
     }
 
+    /* ── Elegant Backdrop ── */
     body::before {
       content: ''; position: fixed; inset: 0; z-index: 0;
       background: 
-        radial-gradient(circle at 15% 15%, rgba(229,181,103,0.05) 0%, transparent 30%),
-        radial-gradient(circle at 85% 85%, rgba(80,70,180,0.05) 0%, transparent 30%),
+        radial-gradient(circle at 20% 20%, rgba(229,181,103,0.04) 0%, transparent 35%),
+        radial-gradient(circle at 80% 80%, rgba(80,70,180,0.04) 0%, transparent 35%),
         #020205;
       pointer-events: none;
     }
 
-    .page { position: relative; z-index: 2; max-width: 550px; margin: 0 auto; padding: 0 20px 60px; }
+    .container { position: relative; z-index: 2; max-width: 500px; margin: 0 auto; padding: 40px 20px 100px; }
 
-    .glass {
-      position: relative; border-radius: var(--r-md); background: var(--glass);
-      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    .glass-sheet {
+      padding: 40px 30px; border-radius: 30px; background: var(--glass);
+      backdrop-filter: blur(30px) saturate(1.6); -webkit-backdrop-filter: blur(30px) saturate(1.6);
       border: 1px solid var(--border);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.8);
-      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.9);
     }
 
-    .cursive { font-family: 'Great Vibes', cursive; color: #ffffff; font-weight: 400; }
+    .cursive { font-family: 'Great Vibes', cursive; font-weight: 400; line-height: 1; }
 
-    /* ── Compact Header ── */
-    header { text-align: center; padding: 40px 20px 20px; }
-    header h1 { font-size: 2.5rem; margin-bottom: 5px; }
+    /* ── Refined Header ── */
+    header { text-align: center; margin-bottom: 30px; }
+    header h1 { font-size: 3.2rem; margin-bottom: 15px; color: #ffffff; }
     
-    .contact-hero { margin-top: 10px; }
-    .contact-hero a { text-decoration: none; color: #ffffff; display: block; transition: 0.3s; }
-    .phone-text { font-size: 1.4rem; font-weight: 800; letter-spacing: 0.5px; }
-    .phone-label { font-size: 10px; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 3px; }
-    .email-text { font-size: 0.95rem; font-weight: 500; opacity: 0.7; margin-top: 5px; }
+    .contact-info { margin-bottom: 20px; }
+    .phone-line { font-size: 1.2rem; font-weight: 700; color: #ffffff; text-decoration: none; display: block; margin-bottom: 5px; }
+    .phone-line span { font-weight: 400; color: var(--gold); margin-left: 8px; letter-spacing: 1px; font-size: 0.9rem; }
+    .email-link { font-size: 1rem; color: #ffffff; opacity: 0.8; text-decoration: none; }
 
-    /* ── Refined Flyer Elements ── */
+    /* ── Precise Flyer Elements ── */
     .flyer-bar { width: 100%; height: 2px; background: #ffffff; margin: 15px 0; position: relative; }
     .flyer-bar::before, .flyer-bar::after { content: ''; position: absolute; top: -4px; width: 2px; height: 10px; background: #ffffff; }
     .flyer-bar::before { left: 0; } .flyer-bar::after { right: 0; }
 
-    .plain-loaf { text-align: center; font-size: 1.1rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+    .plain-item { text-align: center; font-size: 1.15rem; font-weight: 600; padding: 5px 0; letter-spacing: 0.5px; }
 
-    /* ── Elegant Small Image Frames ── */
-    .image-container { width: 100%; margin: 25px 0; border-radius: var(--r-md); border: 1px solid var(--border); background: #000; overflow: hidden; line-height: 0; }
-    .image-container img { width: 100%; height: auto; display: block; opacity: 0.9; }
+    /* ── Small Gallery Framing ── */
+    .photo-frame { width: 100%; height: 220px; margin: 25px 0; border-radius: 20px; border: 1px solid var(--border); background: #000; overflow: hidden; }
+    .photo-frame img { width: 100%; height: 100%; object-fit: contain; }
 
-    /* ── Compact Menu Section ── */
-    .menu-card { padding: 30px 20px; margin-top: 20px; }
-    .menu-title { font-size: 2rem; text-align: center; margin-bottom: 2px; color: var(--gold); }
-    .popular-note { font-size: 11px; text-align: center; font-style: italic; margin-bottom: 25px; display: block; opacity: 0.7; }
+    /* ── Menu Section ── */
+    .menu-cat { margin-top: 35px; text-align: center; }
+    .cat-title { font-size: 2.4rem; color: var(--gold); margin-bottom: 2px; }
+    .popular-note { font-size: 12px; font-style: italic; opacity: 0.7; margin-bottom: 20px; display: block; }
 
-    .menu-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
+    .flavor-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .flavor-list li { font-size: 15px; font-weight: 500; color: #ffffff; }
+    .flavor-list li.popular::before { content: '* '; color: var(--gold); font-weight: 700; }
+    .flavor-list li small { color: var(--gold); font-weight: 400; margin-left: 4px; }
 
-    .category-title { font-size: 1.1rem; font-weight: 800; border-bottom: 1px solid var(--gold); padding-bottom: 5px; margin-bottom: 15px; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; }
-    
-    .flavor-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .flavor-list li { font-size: 14px; font-weight: 600; color: #ffffff; }
-    .flavor-list li.popular::before { content: '* '; color: var(--gold); font-weight: 800; }
-    .flavor-list li small { font-size: 11px; color: var(--gold); font-weight: 500; display: block; margin-top: 1px; }
+    /* ── Fine Print ── */
+    .fine-print { text-align: center; margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--border); }
+    .fine-print p { font-size: 0.95rem; font-weight: 700; margin-bottom: 10px; color: #ffffff; }
 
-    /* ── Compact Info ── */
-    .info-footer { text-align: center; margin-top: 40px; padding: 25px; border: 1px solid var(--gold); background: rgba(229,181,103,0.03); border-radius: var(--r-md); }
-    .info-line { font-size: 1rem; font-weight: 800; margin-bottom: 8px; }
+    footer { text-align: center; margin-top: 60px; }
+    .footer-meta { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.4; line-height: 2; }
 
-    footer { text-align: center; margin-top: 60px; padding: 40px 20px; border-top: 1px solid rgba(255,255,255,0.05); }
-    .footer-meta { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; opacity: 0.5; line-height: 1.8; }
-
-    /* ── Mini Floating Action Button ── */
-    .fab {
-      position: fixed; bottom: 20px; right: 20px; z-index: 100;
-      background: var(--gold); color: #000; padding: 10px 20px; border-radius: 999px;
-      font-weight: 800; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; font-size: 11px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.5); transition: 0.3s;
+    /* ── Floating Action ── */
+    .cta {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100;
+      background: var(--gold); color: #000; padding: 12px 30px; border-radius: 999px;
+      font-weight: 700; text-decoration: none; text-transform: uppercase; font-size: 12px; letter-spacing: 1px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: 0.3s; width: auto; white-space: nowrap;
     }
-    .fab:hover { transform: translateY(-2px); background: #ffffff; }
+    .cta:hover { transform: translateX(-50%) translateY(-3px); background: #ffffff; }
 
-    @media (max-width: 480px) {
-      header h1 { font-size: 2.2rem; }
-      .menu-title { font-size: 1.8rem; }
-      .fab { left: 20px; right: 20px; text-align: center; }
+    @media (max-width: 400px) {
+      .container { padding: 20px 15px; }
+      header h1 { font-size: 2.8rem; }
+      .cat-title { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
-  <a href="tel:4355597334" class="fab">Call or Text to Order</a>
+  <a href="tel:4355597334" class="cta">Call or Text Order</a>
 
-  <div class="page">
-    <header>
-      <h1 class="cursive">M's Simply Sourdough</h1>
-      <div class="contact-hero">
-        <a href="tel:4355597334">
-          <div class="phone-text">(435) 559-7334</div>
-          <div class="phone-label">Call or Text</div>
-        </a>
-        <a href="mailto:MSimplySourdough@gmail.com" class="email-text">MSimplySourdough@gmail.com</a>
-      </div>
-    </header>
-
-    <div class="image-container glass">
-      <img src="grok-image-1f5c4514-6621-48c2-baca-105955c6edc2.png" alt="Starter Jars" />
-    </div>
-
-    <div class="flyer-bar"></div>
-    <div class="plain-loaf">Plain Sourdough Loaf - $8</div>
-    <div class="flyer-bar"></div>
-
-    <div class="image-container glass">
-      <img src="grok-image-9b683a78-aa5d-49a9-be2e-6ba9f1fd6b18.png" alt="Fresh Loaf" />
-    </div>
-
-    <div class="glass menu-card">
-      <h2 class="cursive menu-title">Menu</h2>
-      <span class="popular-note">(* loaves are most popular)</span>
-
-      <div class="menu-grid">
-        <!-- Savory -->
-        <div>
-          <div class="category-title">Savory Loaves - $13</div>
-          <ul class="flavor-list">
-            <li class="popular">Classic Jalapeno &amp; Cheddar</li>
-            <li>Jalapeno, Bacon &amp; Cheddar</li>
-            <li class="popular">Pesto and Mozzarella</li>
-            <li>Pepperoni Pizza</li>
-            <li>Cheesy Pizza</li>
-            <li>Italian Herb &amp; Cheese</li>
-            <li>Buffalo Jalapeno Popper</li>
-            <li class="popular">Pepperjack</li>
-            <li>Sundried Tomato &amp; Asiago</li>
-          </ul>
+  <div class="container">
+    <div class="glass-sheet">
+      <header>
+        <h1 class="cursive">M's Simply Sourdough</h1>
+        <div class="contact-info">
+          <a href="tel:4355597334" class="phone-line">(435) 559-7334 <span>Call or Text</span></a>
+          <a href="mailto:MSimplySourdough@gmail.com" class="email-link">MSimplySourdough@gmail.com</a>
         </div>
+      </header>
 
-        <!-- Sweet -->
-        <div>
-          <div class="category-title" style="margin-top: 20px;">Sweet Loaves - $13</div>
-          <ul class="flavor-list">
-            <li class="popular">Double Chocolate</li>
-            <li>Raspberry Cream Cheese</li>
-            <li>Honey Walnut</li>
-            <li class="popular">Cinnamon Brown Sugar Swirl <small>(can add apples)</small></li>
-            <li>Lemon Blueberry</li>
-          </ul>
+      <div class="photo-frame">
+        <img src="grok-image-1f5c4514-6621-48c2-baca-105955c6edc2.png" alt="Starter Jars" />
+      </div>
+
+      <div class="flyer-bar"></div>
+      <div class="plain-item">Plain Sourdough Loaf - $8</div>
+      <div class="flyer-bar"></div>
+
+      <div class="photo-frame">
+        <img src="grok-image-9b683a78-aa5d-49a9-be2e-6ba9f1fd6b18.png" alt="Finished Loaf" />
+      </div>
+
+      <div class="menu-cat">
+        <h2 class="cursive cat-title">Savory Loaves- $13</h2>
+        <span class="popular-note">(* loaves are most popular)</span>
+        <ul class="flavor-list">
+          <li class="popular">Classic Jalapeno &amp; Cheddar</li>
+          <li>Jalapeno, Bacon &amp; Cheddar</li>
+          <li class="popular">Pesto and Mozzarella</li>
+          <li>Pepperoni Pizza</li>
+          <li>Cheesy Pizza</li>
+          <li>Italian Herb &amp; Cheese</li>
+          <li>Buffalo Jalapeno Popper</li>
+          <li class="popular">Pepperjack</li>
+          <li>Sundried Tomato &amp; Asiago</li>
+        </ul>
+      </div>
+
+      <div class="photo-frame">
+        <img src="grok-image-a863ce89-1079-4299-be94-9d2f4a133bc3.png" alt="Steaming Pan" />
+      </div>
+
+      <div class="menu-cat">
+        <h2 class="cursive cat-title">Sweet Loaves- $13</h2>
+        <ul class="flavor-list">
+          <li class="popular">Double Chocolate</li>
+          <li>Raspberry Cream Cheese</li>
+          <li>Honey Walnut</li>
+          <li class="popular">Cinnamon Brown Sugar Swirl <small>(can add apples)</small></li>
+          <li>Lemon Blueberry</li>
+        </ul>
+      </div>
+
+      <div class="photo-frame">
+        <img src="grok-image-98174780-faf4-44e6-81cd-4d413a0133a7.png" alt="Fermentation" />
+      </div>
+
+      <div class="fine-print">
+        <p>Small, 6" loaves available upon request</p>
+        <p style="color: var(--gold);">Pickup/Delivery Thur-Sun unless arranged otherwise</p>
+      </div>
+
+      <footer>
+        <div class="footer-meta">
+          ESTABLISHED 2026 • CEDAR CITY, UTAH<br>
+          HANDCRAFTED ARTISAN BAKERY
         </div>
-      </div>
+        <p style="font-size: 9px; margin-top: 25px; opacity: 0.3; letter-spacing: 2px;">DESIGN BY PAN-DIT PRESTIGE</p>
+      </footer>
     </div>
-
-    <div class="image-container glass">
-      <img src="grok-image-a863ce89-1079-4299-be94-9d2f4a133bc3.png" alt="Dough Proofing" />
-    </div>
-
-    <div class="info-footer">
-      <p class="info-line">Small, 6" loaves available upon request</p>
-      <p class="info-line" style="color: var(--gold);">Pickup/Delivery Thur-Sun unless arranged otherwise</p>
-    </div>
-
-    <div class="image-container glass">
-      <img src="grok-image-98174780-faf4-44e6-81cd-4d413a0133a7.png" alt="Handcrafted Process" />
-    </div>
-
-    <footer>
-      <div class="footer-meta">
-        ESTABLISHED 2026 • CEDAR CITY, UTAH<br>
-        HANDCRAFTED ARTISAN BAKERY • SLOW RISE • PURE INGREDIENTS
-      </div>
-      <p style="font-size: 9px; margin-top: 30px; opacity: 0.3; letter-spacing: 2px;">DESIGN BY PAN-DIT PRESTIGE</p>
-    </footer>
   </div>
 </body>
 </html>
