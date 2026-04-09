@@ -653,11 +653,38 @@
       margin-left: 3px;
     }
 
+    /* ── PROCESS SECTION ── */
+    .process-wrap {
+      margin-top: 120px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 0;
+      animation: fadeUp 0.9s 0.32s ease both;
+    }
+    @media (max-width: 620px) {
+      .process-wrap { grid-template-columns: 1fr; }
+    }
+    .process-img {
+      min-height: 300px;
+      border-left: 1px solid rgba(255,255,255,0.06);
+      border-radius: 0 var(--r-lg) var(--r-lg) 0;
+      overflow: hidden;
+    }
+    @media (max-width: 620px) {
+      .process-img {
+        order: -1;
+        min-height: 180px;
+        border-left: none;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        border-radius: var(--r-lg) var(--r-lg) 0 0;
+      }
+    }
+
     /* ── FOOTER ── */
     footer {
       text-align: center;
-      margin-top: 80px;
-      padding: 60px 20px;
+      margin-top: 120px;
+      padding: 80px 20px;
     }
     .footer-ornament {
       display: flex;
@@ -675,20 +702,20 @@
 
     .footer-name {
       font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
+      font-size: 1.4rem;
       font-weight: 700;
       letter-spacing: 0.06em;
       color: var(--text-mid);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
     .footer-meta {
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 300;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--text-soft);
-      opacity: 0.4;
-      line-height: 2.2;
+      opacity: 0.6;
+      line-height: 2.4;
     }
 
     /* ── ANIMATIONS ── */
@@ -745,9 +772,10 @@
       <div class="d-line"></div>
     </div>
 
+    <!-- SIGNATURE SECTION -->
     <div class="glass sig-wrap">
       <div class="sig-img">
-        <img src="grok-image-1f5c4514-6621-48c2-baca-105955c6edc2.png" alt="Sourdough heritage" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" />
+        <img src="grok-image-1f5c4514-6621-48c2-baca-105955c6edc2.png" alt="Sourdough Heritage" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" />
       </div>
       <div class="sig-body">
         <p class="section-label">The Foundation</p>
@@ -773,6 +801,7 @@
       <div class="d-line"></div>
     </div>
 
+    <!-- WEEKLY SECTION -->
     <div class="weekly-section">
       <div class="weekly-header">
         <p class="section-label">Curated Infusions</p>
@@ -823,6 +852,23 @@
       </div>
     </div>
 
+    <!-- PROCESS SECTION -->
+    <div class="glass process-wrap">
+      <div class="sig-body">
+        <p class="section-label">The Craft</p>
+        <h2 class="card-title">Slow Fermented</h2>
+        <p class="card-desc">Every loaf begins with our heritage starter, cold-proofed for 24 hours to develop that signature tang and airy crumb. It's a process that can't be rushed.</p>
+        <div class="card-footer" style="justify-content: flex-start;">
+          <div class="tpill" style="opacity: 1; color: var(--gold);">Pure Ingredients</div>
+          <span class="tdot" style="margin: 0 15px;"></span>
+          <div class="tpill" style="opacity: 1; color: var(--gold);">No Shortcuts</div>
+        </div>
+      </div>
+      <div class="process-img">
+        <img src="grok-image-98174780-faf4-44e6-81cd-4d413a0133a7.png" alt="Sourdough Process" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" />
+      </div>
+    </div>
+
     <footer>
       <div class="footer-ornament">
         <div class="fo-line"></div>
@@ -832,9 +878,14 @@
       <div class="footer-name">M's Simply Sourdough</div>
       <div class="footer-meta">
         ESTABLISHED 2026 • CEDAR CITY, UTAH<br>
-        HANDCRAFTED ARTISAN BAKERY
+        HANDCRAFTED ARTISAN BAKERY • HAND MIXED • SLOW FERMENTED
       </div>
-      <p style="opacity: 0.2; font-size: 0.7rem; margin-top: 40px; letter-spacing: 2px;">DESIGN BY PAN-DIT PRESTIGE</p>
+      <div style="margin-top: 40px; display: flex; justify-content: center; gap: 20px;">
+        <a href="tel:4355597334" style="color: var(--text-soft); text-decoration: none; font-size: 12px; letter-spacing: 1px;">(435) 559-7334</a>
+        <span style="color: var(--text-dim);">|</span>
+        <a href="mailto:MSimplySourdough@gmail.com" style="color: var(--text-soft); text-decoration: none; font-size: 12px; letter-spacing: 1px;">Email Us</a>
+      </div>
+      <p style="opacity: 0.2; font-size: 0.7rem; margin-top: 60px; letter-spacing: 2px;">DESIGN BY PAN-DIT PRESTIGE</p>
     </footer>
   </div>
 </body>
