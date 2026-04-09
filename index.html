@@ -618,6 +618,14 @@
       background: var(--text-soft);
       opacity: 0.5;
     }
+    .flavor-list li.popular::after {
+      content: '★';
+      color: var(--gold);
+      font-size: 10px;
+      margin-left: 8px;
+      opacity: 0.8;
+      filter: drop-shadow(0 0 4px var(--gold-glow));
+    }
     .flavor-list li small {
       display: block;
       font-size: 10.5px;
@@ -816,16 +824,18 @@
           </span>
           <h3>Bold &amp; Savory</h3>
           <ul class="flavor-list">
-            <li>Classic Jalapeño &amp; Cheddar</li>
+            <li class="popular">Classic Jalapeño &amp; Cheddar</li>
             <li>Jalapeño, Bacon &amp; Cheddar</li>
-            <li>Pesto &amp; Mozzarella</li>
+            <li class="popular">Pesto &amp; Mozzarella</li>
             <li>Pepperoni Pizza</li>
             <li>Cheesy Pizza</li>
+            <li>Italian Herb &amp; Cheese</li>
             <li>Buffalo Jalapeño Popper</li>
-            <li>Pepperjack</li>
+            <li class="popular">Pepper Jack</li>
+            <li>Sun-Dried Tomato &amp; Asiago</li>
           </ul>
           <div class="flavor-footer">
-            <div class="flavor-price">$12 <small>/ loaf</small></div>
+            <div class="flavor-price">$13 <small>/ loaf</small></div>
             <a class="btn btn-ghost" style="font-size:12px;padding:10px 20px;" href="mailto:MSimplySourdough@gmail.com?subject=Order: Savory Loaf">Order</a>
           </div>
         </div>
@@ -837,15 +847,14 @@
           </span>
           <h3>Sweet &amp; Indulgent</h3>
           <ul class="flavor-list">
-            <li>Double Chocolate</li>
+            <li class="popular">Double Chocolate</li>
             <li>Raspberry Cream Cheese</li>
             <li>Honey Walnut</li>
-            <li>Cinnamon Brown Sugar Swirl</li>
+            <li class="popular">Cinnamon Brown Sugar Swirl<small>Apples can be added on request</small></li>
             <li>Lemon Blueberry</li>
-            <li>Cinnamon Apple Swirl<small>† Local apples · available on request</small></li>
           </ul>
           <div class="flavor-footer">
-            <div class="flavor-price">$12 <small>/ loaf</small></div>
+            <div class="flavor-price">$13 <small>/ loaf</small></div>
             <a class="btn btn-ghost" style="font-size:12px;padding:10px 20px;color:var(--rose);border-color:rgba(192,112,144,0.22);border-top-color:rgba(192,112,144,0.38);" href="mailto:MSimplySourdough@gmail.com?subject=Order: Sweet Loaf">Order</a>
           </div>
         </div>
@@ -878,7 +887,8 @@
       <div class="footer-name">M's Simply Sourdough</div>
       <div class="footer-meta">
         ESTABLISHED 2026 • CEDAR CITY, UTAH<br>
-        HANDCRAFTED ARTISAN BAKERY • HAND MIXED • SLOW FERMENTED
+        HANDCRAFTED ARTISAN BAKERY • PICKUP & DELIVERY: THURSDAY–SUNDAY<br>
+        <span style="font-size: 9px; opacity: 0.8;">SMALL 6" LOAVES AVAILABLE UPON REQUEST</span>
       </div>
       <div style="margin-top: 40px; display: flex; justify-content: center; gap: 20px;">
         <a href="tel:4355597334" style="color: var(--text-soft); text-decoration: none; font-size: 12px; letter-spacing: 1px;">(435) 559-7334</a>
