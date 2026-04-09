@@ -4,15 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>M's Simply Sourdough | Cedar City Artisanal Bakery</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Great+Vibes&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --bg:          #020205;
-      --gold:        #e5b567;
-      --glass:       rgba(10, 10, 18, 0.98);
-      --border:      rgba(255, 255, 255, 0.12);
+      --gold:        #f0c878;
+      --gold-light:  #fff0b0;
+      --gold-glow:   rgba(240,200,120,0.6);
+      --glass:       rgba(15, 15, 25, 0.98);
+      --border:      rgba(255, 255, 255, 0.2);
     }
 
     html { scroll-behavior: smooth; }
@@ -23,119 +25,140 @@
       min-height: 100vh;
       overflow-x: hidden;
       line-height: 1.4;
-      font-size: 14px;
     }
 
+    /* ── High-Impact Animated Background ── */
     body::before {
       content: ''; position: fixed; inset: 0; z-index: 0;
       background: 
-        radial-gradient(circle at 10% 10%, rgba(229,181,103,0.05) 0%, transparent 30%),
-        radial-gradient(circle at 90% 90%, rgba(80,70,180,0.05) 0%, transparent 30%),
+        radial-gradient(circle at 10% 10%, rgba(240,200,120,0.1) 0%, transparent 40%),
+        radial-gradient(circle at 90% 90%, rgba(80,70,180,0.1) 0%, transparent 40%),
         #020205;
       pointer-events: none;
     }
 
-    .container { position: relative; z-index: 2; max-width: 420px; margin: 0 auto; padding: 40px 15px 100px; }
+    /* ── Moving Glow Blob ── */
+    .glow-blob {
+      position: fixed; width: 400px; height: 400px; background: radial-gradient(circle, var(--gold-glow) 0%, transparent 70%);
+      filter: blur(80px); z-index: 1; opacity: 0.15; top: 20%; left: 30%; pointer-events: none;
+      animation: float 15s infinite alternate ease-in-out;
+    }
+
+    @keyframes float { from { transform: translate(-10%, -10%); } to { transform: translate(20%, 20%); } }
+
+    .container { position: relative; z-index: 2; max-width: 450px; margin: 0 auto; padding: 60px 15px 120px; }
 
     .glass-card {
-      padding: 40px 25px; border-radius: 24px; background: var(--glass);
-      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      padding: 50px 30px; border-radius: 32px; background: var(--glass);
+      backdrop-filter: blur(40px) saturate(2); -webkit-backdrop-filter: blur(40px) saturate(2);
       border: 1px solid var(--border);
-      box-shadow: 0 30px 60px rgba(0,0,0,0.9);
+      box-shadow: 0 50px 100px rgba(0,0,0,0.9), inset 0 1px 2px rgba(255,255,255,0.2);
     }
 
-    .cursive { font-family: 'Great Vibes', cursive; color: #ffffff; font-weight: 400; line-height: 1; }
+    .cursive { font-family: 'Great Vibes', cursive; font-weight: 400; line-height: 1; }
 
-    header { text-align: center; margin-bottom: 30px; }
-    header h1 { font-size: 2.5rem; margin-bottom: 15px; }
+    /* ── Logo with Massive Pop ── */
+    header { text-align: center; margin-bottom: 40px; }
+    header h1 { 
+      font-size: clamp(3.5rem, 12vw, 5rem); margin-bottom: 15px;
+      background: linear-gradient(135deg, #ffffff 0%, var(--gold) 50%, #ffffff 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      filter: drop-shadow(0 0 30px var(--gold-glow));
+    }
     
-    .contact-hero { margin-bottom: 25px; }
-    .phone-line { font-size: 1.5rem; font-weight: 800; color: var(--gold); text-decoration: none; display: block; margin-bottom: 2px; }
-    .phone-line span { font-weight: 600; color: #ffffff; margin-left: 5px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2px; }
-    .email-link { font-size: 1rem; color: #ffffff; opacity: 0.8; text-decoration: none; display: block; margin-top: 8px; }
+    .contact-area { margin-bottom: 30px; }
+    .phone-big { font-size: 1.8rem; font-weight: 900; color: #ffffff; text-decoration: none; display: block; letter-spacing: 1px; transition: 0.3s; }
+    .phone-big span { font-weight: 600; color: var(--gold); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 4px; display: block; margin-top: 5px; }
+    .email-line { font-size: 1.1rem; color: var(--gold); text-decoration: none; font-weight: 600; opacity: 0.9; }
+    .phone-big:hover { transform: scale(1.05); filter: drop-shadow(0 0 15px var(--gold-glow)); }
 
-    .flyer-bar { width: 100%; height: 2px; background: #ffffff; margin: 15px 0; position: relative; }
-    .flyer-bar::before, .flyer-bar::after { content: ''; position: absolute; top: -4px; width: 2px; height: 10px; background: #ffffff; }
-    .flyer-bar::before { left: 0; } .flyer-bar::after { right: 0; }
+    /* ── Gold Divider Bars ── */
+    .gold-bar { width: 100%; height: 4px; background: var(--gold); margin: 20px 0; position: relative; box-shadow: 0 0 20px var(--gold-glow); }
+    .gold-bar::before, .gold-bar::after { content: ''; position: absolute; top: -10px; width: 4px; height: 24px; background: var(--gold); box-shadow: 0 0 10px var(--gold-glow); }
+    .gold-bar::before { left: 0; } .gold-bar::after { right: 0; }
 
-    .plain-item { text-align: center; font-size: 1.2rem; font-weight: 700; padding: 5px 0; letter-spacing: 0.5px; text-transform: uppercase; }
+    .plain-title { text-align: center; font-size: 1.5rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; color: #ffffff; }
 
-    .menu-section { margin-top: 40px; text-align: center; }
-    .menu-title { font-size: 2.2rem; color: var(--gold); margin-bottom: 5px; }
-    .note { font-size: 12px; font-style: italic; opacity: 0.8; margin-bottom: 25px; display: block; }
+    .menu-cat { margin-top: 50px; text-align: center; }
+    .cat-title { font-size: 3rem; color: var(--gold); margin-bottom: 5px; filter: drop-shadow(0 0 15px var(--gold-glow)); }
+    .pop-note { font-size: 14px; font-style: italic; color: #ffffff; margin-bottom: 30px; display: block; font-weight: 500; }
 
-    .list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 35px; }
-    .list li { font-size: 16px; font-weight: 600; color: #ffffff; }
-    .list li.popular::before { content: '* '; color: var(--gold); }
-    .list li small { color: var(--gold); font-weight: 500; font-size: 12px; margin-left: 3px; }
+    .flavor-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .flavor-list li { font-size: 18px; font-weight: 700; color: #ffffff; letter-spacing: 0.5px; }
+    .flavor-list li.star::before { content: '* '; color: var(--gold); font-weight: 900; }
+    .flavor-list li small { color: var(--gold); font-weight: 600; font-size: 13px; display: block; margin-top: 4px; }
 
-    .fine-print { text-align: center; margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--border); }
-    .fine-print p { font-size: 1rem; font-weight: 800; margin-bottom: 12px; color: #ffffff; }
+    .fine-print { text-align: center; margin-top: 50px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .fine-print p { font-size: 1.1rem; font-weight: 900; margin-bottom: 15px; color: #ffffff; letter-spacing: 0.5px; }
 
-    footer { text-align: center; margin-top: 60px; }
-    .footer-meta { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.4; line-height: 2; }
+    footer { text-align: center; margin-top: 80px; }
+    .footer-meta { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.5; line-height: 2.2; font-weight: 600; }
 
-    .cta {
-      position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); z-index: 100;
-      background: var(--gold); color: #000; padding: 12px 30px; border-radius: 999px;
-      font-weight: 800; text-decoration: none; text-transform: uppercase; font-size: 12px; letter-spacing: 1px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6); transition: 0.3s; white-space: nowrap;
+    /* ── Aggressive Glowing Button ── */
+    .cta-btn {
+      position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 100;
+      background: var(--gold); color: #000; padding: 16px 40px; border-radius: 999px;
+      font-weight: 900; text-decoration: none; text-transform: uppercase; font-size: 14px; letter-spacing: 2px;
+      box-shadow: 0 15px 40px var(--gold-glow); transition: 0.3s; white-space: nowrap;
     }
-    .cta:hover { transform: translateX(-50%) translateY(-2px); background: #ffffff; }
+    .cta-btn:hover { transform: translateX(-50%) translateY(-5px) scale(1.1); background: #ffffff; box-shadow: 0 20px 50px rgba(255,255,255,0.4); }
 
-    @media (max-width: 400px) {
-      header h1 { font-size: 2.2rem; }
-      .phone-line { font-size: 1.3rem; }
+    @media (max-width: 480px) {
+      header h1 { font-size: 3.5rem; }
+      .phone-big { font-size: 1.5rem; }
+      .cat-title { font-size: 2.5rem; }
     }
   </style>
 </head>
 <body>
-  <a href="tel:4355597334" class="cta">Call or Text Order</a>
+  <div class="glow-blob"></div>
+  <a href="tel:4355597334" class="cta-btn">TAP TO CALL OR TEXT ORDER</a>
 
   <div class="container">
     <div class="glass-card">
       <header>
         <h1 class="cursive">M's Simply Sourdough</h1>
-        <div class="contact-hero">
-          <a href="tel:4355597334" class="phone-line">(435) 559-7334 <span>Call or Text</span></a>
-          <a href="mailto:MSimplySourdough@gmail.com" class="email-link">MSimplySourdough@gmail.com</a>
+        <div class="contact-area">
+          <a href="tel:4355597334" class="phone-big">(435) 559-7334 <span>Call or Text</span></a>
+          <div style="height: 15px;"></div>
+          <a href="mailto:MSimplySourdough@gmail.com" class="email-line">MSimplySourdough@gmail.com</a>
         </div>
       </header>
 
-      <div class="flyer-bar"></div>
-      <div class="plain-item">Plain Sourdough Loaf - $8</div>
-      <div class="flyer-bar"></div>
+      <div class="gold-bar"></div>
+      <div class="plain-title">Plain Sourdough Loaf - $8</div>
+      <div class="gold-bar"></div>
 
-      <div class="menu-section">
-        <h2 class="cursive menu-title">Savory Loaves- $13</h2>
-        <span class="note">(* loaves are most popular)</span>
-        <ul class="list">
-          <li class="popular">Classic Jalapeno &amp; Cheddar</li>
+      <div class="menu-cat">
+        <h2 class="cursive cat-title">Savory Loaves- $13</h2>
+        <span class="pop-note">(* loaves are most popular)</span>
+        <ul class="flavor-list">
+          <li class="star">Classic Jalapeno &amp; Cheddar</li>
           <li>Jalapeno, Bacon &amp; Cheddar</li>
-          <li class="popular">Pesto and Mozzarella</li>
+          <li class="star">Pesto and Mozzarella</li>
           <li>Pepperoni Pizza</li>
           <li>Cheesy Pizza</li>
           <li>Italian Herb &amp; Cheese</li>
           <li>Buffalo Jalapeno Popper</li>
-          <li class="popular">Pepperjack</li>
+          <li class="star">Pepperjack</li>
           <li>Sundried Tomato &amp; Asiago</li>
         </ul>
       </div>
 
-      <div class="menu-section">
-        <h2 class="cursive menu-title">Sweet Loaves- $13</h2>
-        <ul class="list">
-          <li class="popular">Double Chocolate</li>
+      <div class="menu-cat">
+        <h2 class="cursive cat-title">Sweet Loaves- $13</h2>
+        <ul class="flavor-list">
+          <li class="star">Double Chocolate</li>
           <li>Raspberry Cream Cheese</li>
           <li>Honey Walnut</li>
-          <li class="popular">Cinnamon Brown Sugar Swirl <small>(can add apples)</small></li>
+          <li class="star">Cinnamon Brown Sugar Swirl <small>(can add apples)</small></li>
           <li>Lemon Blueberry</li>
         </ul>
       </div>
 
       <div class="fine-print">
         <p>Small, 6" loaves available upon request</p>
-        <p style="color: var(--gold);">Pickup/Delivery Thur-Sun unless arranged otherwise</p>
+        <p style="color: var(--gold); text-shadow: 0 0 10px var(--gold-glow);">Pickup/Delivery Thur-Sun unless arranged otherwise</p>
       </div>
 
       <footer>
@@ -143,7 +166,7 @@
           ESTABLISHED 2026 • CEDAR CITY, UTAH<br>
           HANDCRAFTED ARTISAN BAKERY
         </div>
-        <p style="font-size: 9px; margin-top: 30px; opacity: 0.3; letter-spacing: 2px;">DESIGN BY PAN-DIT PRESTIGE</p>
+        <p style="font-size: 10px; margin-top: 30px; opacity: 0.4; letter-spacing: 3px; font-weight: 800;">DESIGN BY PAN-DIT PRESTIGE</p>
       </footer>
     </div>
   </div>
