@@ -4,17 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>M's Simply Sourdough | Cedar City Artisanal Bakery</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --bg:          #04040a;
       --gold:        #e5b567;
-      --gold-glow:   rgba(229,181,103,0.3);
       --text:        #ffffff;
       --text-mid:    #e0e0f0;
-      --glass-bg:    rgba(15, 15, 25, 0.9);
+      --glass-bg:    rgba(15, 15, 25, 0.92);
       --r-md:        24px;
     }
 
@@ -33,7 +32,7 @@
       pointer-events: none;
     }
 
-    .page { position: relative; z-index: 2; max-width: 850px; margin: 0 auto; padding: 0 20px 80px; }
+    .page { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; padding: 0 20px 80px; }
 
     .glass {
       position: relative; border-radius: var(--r-md); background: var(--glass-bg);
@@ -42,148 +41,95 @@
       box-shadow: 0 15px 35px rgba(0,0,0,0.6);
     }
 
+    .cursive { font-family: 'Great Vibes', cursive; color: #ffffff; }
+
     header { text-align: center; padding: 60px 20px 30px; }
-    h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; line-height: 1; color: #ffffff; }
-    h1 .italic { font-style: italic; color: var(--gold); display: block; }
-    .hero-sub { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem; color: var(--gold); margin-top: 15px; letter-spacing: 1px; }
-
-    .contact-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 30px; }
-    .contact-pill {
-      display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: #ffffff;
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 999px; text-decoration: none;
-    }
-
-    .urgent-box { margin: 30px 0; padding: 30px; text-align: center; border: 1px solid var(--gold); background: rgba(229,181,103,0.05); }
-    .urgent-label { font-size: 11px; font-weight: 700; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
-    .urgent-phone { font-size: 2.2rem; font-weight: 800; color: #ffffff; text-decoration: none; display: block; margin-bottom: 15px; }
+    header h1 { font-size: clamp(3.5rem, 10vw, 5rem); margin-bottom: 5px; font-weight: 400; }
     
-    .btn {
-      display: inline-block; background: var(--gold); color: #000; font-weight: 700; font-size: 14px;
-      padding: 12px 30px; border-radius: 999px; text-decoration: none; text-transform: uppercase; letter-spacing: 1px;
-    }
+    .contact-line { font-size: 1.4rem; font-weight: 600; color: #ffffff; margin-top: 10px; }
+    .contact-line span { font-weight: 400; color: var(--text-mid); margin-left: 5px; }
+    .email-line { font-size: 1.2rem; font-weight: 500; color: #ffffff; margin-top: 5px; text-decoration: none; display: block; }
 
-    .divider { display: flex; align-items: center; justify-content: center; margin: 40px 0; }
-    .d-gem { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+    .plain-box { text-align: center; padding: 25px; margin: 30px 0; border-top: 2px solid #ffffff; border-bottom: 2px solid #ffffff; font-size: 1.3rem; font-weight: 600; }
 
-    .section-label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
-    .card-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
-    .card-desc { font-size: 14px; font-weight: 400; line-height: 1.6; color: #e0e0f0; }
+    .menu-section { margin-top: 40px; }
+    .menu-title { font-size: 3rem; text-align: center; margin-bottom: 5px; }
+    .price-tag { font-size: 1.8rem; text-align: center; margin-bottom: 10px; color: var(--gold); }
+    .popular-note { font-size: 12px; text-align: center; font-style: italic; color: var(--text-mid); margin-bottom: 25px; display: block; }
 
-    .sig-wrap { display: grid; grid-template-columns: 1fr 1.2fr; overflow: hidden; }
-    @media (max-width: 620px) { .sig-wrap { grid-template-columns: 1fr; } }
-    .sig-img { min-height: 250px; }
-    .sig-body { padding: 30px; }
-
-    .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
-    @media (max-width: 620px) { .menu-grid { grid-template-columns: 1fr; } }
-    .menu-card { padding: 30px; }
-    .menu-tag { font-size: 11px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid var(--gold); padding-bottom: 5px; margin-bottom: 20px; display: inline-block; }
+    .menu-card { padding: 40px; margin-bottom: 30px; }
     
-    .flavor-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .flavor-list li { font-size: 15px; font-weight: 500; color: #ffffff; }
-    .flavor-list li.popular::before { content: '* '; color: var(--gold); font-weight: 800; }
-    .flavor-list li small { display: block; font-size: 11px; color: var(--gold); margin-top: 2px; }
+    .flavor-list { list-style: none; display: flex; flex-direction: column; gap: 12px; text-align: center; }
+    .flavor-list li { font-size: 17px; font-weight: 500; color: #ffffff; }
+    .flavor-list li small { font-size: 13px; color: var(--text-mid); font-weight: 400; margin-left: 5px; }
 
-    .guide-box { margin-top: 20px; text-align: center; font-size: 12px; font-weight: 600; color: var(--gold); }
+    .footer-info { text-align: center; margin-top: 50px; }
+    .footer-info p { font-size: 1.1rem; font-weight: 700; margin-bottom: 15px; color: #ffffff; }
 
-    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
-    @media (max-width: 620px) { .info-grid { grid-template-columns: 1fr; } }
-    .info-box { padding: 30px; text-align: left; }
-    .info-box h4 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--gold); margin-bottom: 10px; }
+    footer { text-align: center; margin-top: 80px; padding: 40px 20px; }
+    .footer-meta { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #ffffff; opacity: 0.6; line-height: 2; }
 
-    footer { text-align: center; margin-top: 80px; padding: 60px 20px; border-top: 1px solid rgba(255,255,255,0.1); }
-    .footer-name { font-size: 1.4rem; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
-    .footer-meta { font-size: 12px; color: #ffffff; line-height: 1.8; opacity: 0.9; }
+    @media (max-width: 480px) {
+      header h1 { font-size: 3.5rem; }
+      .contact-line { font-size: 1.1rem; }
+      .plain-box { font-size: 1.1rem; }
+      .menu-title { font-size: 2.5rem; }
+    }
   </style>
 </head>
 <body>
   <div class="page">
     <header>
-      <h1>M's Simply <span class="italic">Sourdough</span></h1>
-      <p class="hero-sub">The Art of the Slow Rise</p>
-      <div class="contact-bar">
-        <a class="contact-pill" href="tel:4355597334">(435) 559-7334</a>
-        <a class="contact-pill" href="mailto:MSimplySourdough@gmail.com">Email Us</a>
-      </div>
+      <h1 class="cursive">M's Simply Sourdough</h1>
+      <a href="tel:4355597334" class="contact-line" style="text-decoration: none;">(435) 559-7334 <span>Call or Text</span></a>
+      <a href="mailto:MSimplySourdough@gmail.com" class="email-line">MSimplySourdough@gmail.com</a>
     </header>
 
-    <section class="glass urgent-box">
-      <div class="urgent-label">Order by Call or Text</div>
-      <a href="tel:4355597334" class="urgent-phone">(435) 559-7334</a>
-      <a href="tel:4355597334" class="btn">Tap to Order</a>
-    </section>
+    <div class="plain-box">Plain Sourdough Loaf - $8</div>
 
-    <div class="divider"><div class="d-gem"></div></div>
-
-    <div class="glass sig-wrap">
-      <div class="sig-img">
-        <img src="grok-image-1f5c4514-6621-48c2-baca-105955c6edc2.png" alt="Sourdough" style="width:100%;height:100%;object-fit:cover;" />
-      </div>
-      <div class="sig-body">
-        <span class="section-label">The Foundation</span>
-        <h2 class="card-title">The Signature Loaf</h2>
-        <p class="card-desc">A heritage-focused bake. Hand-mixed with ancient patience, resulting in a dark flavored crust and a soft, custard-like crumb.</p>
-        <div style="margin-top: 20px; font-size: 1.8rem; font-weight: 800; color: var(--gold);">$8</div>
+    <div class="menu-section">
+      <h2 class="cursive menu-title">Savory Loaves - $13</h2>
+      <span class="popular-note">(* loaves are most popular)</span>
+      
+      <div class="glass menu-card">
+        <ul class="flavor-list">
+          <li>*Classic Jalapeño &amp; Cheddar</li>
+          <li>Jalapeño, Bacon &amp; Cheddar</li>
+          <li>*Pesto and Mozzarella</li>
+          <li>Pepperoni Pizza</li>
+          <li>Cheesy Pizza</li>
+          <li>Italian Herb &amp; Cheese</li>
+          <li>Buffalo Jalapeño Popper</li>
+          <li>*Pepperjack</li>
+          <li>Sundried Tomato &amp; Asiago</li>
+        </ul>
       </div>
     </div>
 
-    <section style="margin-top: 60px;">
-      <div style="text-align: center;">
-        <span class="section-label">Weekly Selection</span>
-        <h2 class="card-title" style="font-size: 2.2rem;">The Menu</h2>
-        <!-- ── THE GUIDE (SMARTER THINKING) ── -->
-        <div class="guide-box">* indicates our most popular loaves</div>
+    <div class="menu-section">
+      <h2 class="cursive menu-title">Sweet Loaves - $13</h2>
+      <div class="glass menu-card">
+        <ul class="flavor-list">
+          <li>*Double Chocolate</li>
+          <li>Raspberry Cream Cheese</li>
+          <li>Honey Walnut</li>
+          <li>*Cinnamon Brown Sugar Swirl <small>(can add apples)</small></li>
+          <li>Lemon Blueberry</li>
+        </ul>
       </div>
+    </div>
 
-      <div class="menu-grid">
-        <div class="glass menu-card">
-          <span class="menu-tag">Savory — $13</span>
-          <ul class="flavor-list">
-            <li class="popular">Classic Jalapeño &amp; Cheddar</li>
-            <li>Jalapeño, Bacon &amp; Cheddar</li>
-            <li class="popular">Pesto &amp; Mozzarella</li>
-            <li>Pepperoni Pizza</li>
-            <li>Cheesy Pizza</li>
-            <li>Italian Herb &amp; Cheese</li>
-            <li>Buffalo Jalapeño Popper</li>
-            <li class="popular">Pepper Jack</li>
-            <li>Sun-Dried Tomato &amp; Asiago</li>
-          </ul>
-        </div>
-
-        <div class="glass menu-card">
-          <span class="menu-tag">Sweet — $13</span>
-          <ul class="flavor-list">
-            <li class="popular">Double Chocolate</li>
-            <li>Raspberry Cream Cheese</li>
-            <li>Honey Walnut</li>
-            <li class="popular">Cinnamon Brown Sugar Swirl<small>(Apples can be added on request)</small></li>
-            <li>Lemon Blueberry</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <div class="info-grid">
-      <div class="glass info-box">
-        <h4>Schedule</h4>
-        <p style="font-weight: 700; color: var(--gold); margin-bottom: 5px;">Thursday – Sunday</p>
-        <p style="font-size: 13px;">Pickup and delivery available throughout Cedar City.</p>
-      </div>
-      <div class="glass info-box">
-        <h4>Custom Sizes</h4>
-        <p style="font-size: 13px;">Small 6" loaves are available upon request—perfect for individual gifts or sampling.</p>
-      </div>
+    <div class="footer-info">
+      <p>Small, 6" loaves available upon request</p>
+      <p>Pickup/Delivery Thur-Sun unless arranged otherwise</p>
     </div>
 
     <footer>
-      <div class="footer-name">M's Simply Sourdough</div>
       <div class="footer-meta">
         ESTABLISHED 2026 • CEDAR CITY, UTAH<br>
-        PICKUP & DELIVERY: THURSDAY–SUNDAY<br>
-        (435) 559-7334
+        HANDCRAFTED ARTISAN BAKERY
       </div>
-      <p style="font-size: 10px; margin-top: 40px; opacity: 0.5; letter-spacing: 2px;">DESIGN BY PAN-DIT PRESTIGE</p>
+      <p style="font-size: 10px; margin-top: 30px; opacity: 0.4; letter-spacing: 2px;">DESIGN BY PAN-DIT PRESTIGE</p>
     </footer>
   </div>
 </body>
