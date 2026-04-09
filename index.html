@@ -10,12 +10,12 @@
 
     :root {
       --bg:          #04040a;
-      --gold:        #f0c878; /* Brighter, more vibrant gold */
-      --gold-deep:   #d4a017;
-      --gold-glow:   rgba(240,200,120,0.5);
+      --gold:        #f0c878;
+      --gold-dim:    rgba(240,200,120,0.2);
+      --gold-glow:   rgba(240,200,120,0.4);
       --text:        #ffffff;
-      --text-mid:    #f0f0f0;
-      --glass-bg:    rgba(15, 15, 25, 0.92);
+      --text-mid:    #e0e0f0;
+      --glass-bg:    rgba(12, 12, 22, 0.95);
       --r-lg:        36px;
     }
 
@@ -28,67 +28,95 @@
       overflow-x: hidden;
     }
 
+    /* ── Subtle Texture Background ── */
     body::before {
       content: ''; position: fixed; inset: 0; z-index: 0;
-      background: radial-gradient(ellipse 100% 70% at 50% 0%, #0d0d22 0%, transparent 65%), #04040a;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(240,200,120,0.05) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(208,128,160,0.05) 0%, transparent 40%),
+        #04040a;
       pointer-events: none;
     }
 
-    .page { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; padding: 0 24px 100px; }
+    .page { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; padding: 0 24px 100px; }
 
     .glass {
       position: relative; border-radius: var(--r-lg); background: var(--glass-bg);
-      backdrop-filter: blur(24px) saturate(1.8); -webkit-backdrop-filter: blur(24px) saturate(1.8);
-      border: 1px solid rgba(255,255,255,0.2); outline: 1px solid rgba(0,0,0,0.8); outline-offset: -2px;
-      box-shadow: 0 32px 80px rgba(0,0,0,0.9); overflow: hidden;
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+      overflow: hidden;
     }
 
-    header { text-align: center; padding: 80px 20px 40px; }
-    h1 { font-family: 'Playfair Display', serif; font-size: clamp(3.2rem, 10vw, 6.5rem); font-weight: 900; line-height: 0.92; color: #ffffff; }
-    h1 .italic { font-style: italic; color: var(--gold); display: block; filter: drop-shadow(0 0 20px var(--gold-glow)); }
+    header { text-align: center; padding: 100px 20px 60px; }
+    h1 { font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 12vw, 7rem); font-weight: 900; line-height: 0.85; color: #ffffff; margin-bottom: 10px; }
+    h1 .italic { font-style: italic; color: var(--gold); display: block; filter: drop-shadow(0 0 15px var(--gold-glow)); }
+    .hero-sub { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.5rem; color: var(--gold); opacity: 0.9; margin-top: 20px; letter-spacing: 2px; }
 
-    /* ── URGENT CALL/TEXT ACTION ── */
-    .urgent-contact {
-      margin: 40px 0; padding: 40px; text-align: center; border: 2px solid var(--gold);
-      background: rgba(240,200,120,0.05); animation: fadeUp 0.9s 0.2s ease both;
+    /* ── TOP BANNER ACTION ── */
+    .contact-banner {
+      background: linear-gradient(90deg, transparent, rgba(240,200,120,0.1), transparent);
+      border-top: 1px solid var(--gold-dim);
+      border-bottom: 1px solid var(--gold-dim);
+      padding: 30px 0; margin: 40px 0; text-align: center;
     }
-    .urgent-label { font-size: 14px; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 15px; }
-    .urgent-phone { font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 800; color: #ffffff; text-decoration: none; display: block; margin-bottom: 20px; transition: 0.3s; }
-    .urgent-phone:hover { color: var(--gold); transform: scale(1.02); }
-    .call-btn {
-      display: inline-block; background: var(--gold); color: #000000; font-weight: 800; font-size: 18px;
-      padding: 18px 48px; border-radius: 999px; text-decoration: none; text-transform: uppercase;
-      letter-spacing: 2px; box-shadow: 0 10px 30px var(--gold-glow); transition: 0.3s;
+    .urgent-phone { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 800; color: #ffffff; text-decoration: none; display: block; transition: 0.3s; line-height: 1; }
+    .urgent-phone:hover { color: var(--gold); transform: scale(1.03); }
+    .label-big { font-size: 14px; font-weight: 800; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; margin-bottom: 15px; }
+
+    .btn {
+      display: inline-block; background: var(--gold); color: #000; font-weight: 800; font-size: 16px;
+      padding: 16px 40px; border-radius: 999px; text-decoration: none; text-transform: uppercase;
+      letter-spacing: 2px; margin-top: 25px; transition: 0.3s;
     }
-    .call-btn:hover { background: #ffffff; transform: translateY(-3px); box-shadow: 0 15px 40px rgba(255,255,255,0.3); }
+    .btn:hover { background: #fff; transform: translateY(-3px); box-shadow: 0 10px 30px var(--gold-glow); }
 
-    .divider { display: flex; align-items: center; justify-content: center; margin: 60px 0; }
-    .d-gem { width: 12px; height: 12px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 20px var(--gold-glow); }
+    /* ── MENU TILES ── */
+    .menu-section { margin-top: 120px; }
+    .section-label { font-size: 12px; font-weight: 800; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: block; text-align: center; }
+    
+    .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
+    @media (max-width: 768px) { .menu-grid { grid-template-columns: 1fr; } }
 
-    .section-label { font-size: 12px; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 15px; }
-    .card-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 800; color: #ffffff; margin-bottom: 15px; }
-    .card-desc { font-size: 16px; font-weight: 500; line-height: 1.7; color: #ffffff; }
+    .menu-card { padding: 50px 40px; border: 1px solid rgba(255,255,255,0.1); transition: 0.4s; }
+    .menu-card:hover { border-color: var(--gold); box-shadow: 0 0 40px rgba(240,200,120,0.1); }
+    
+    .card-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 30px; border-bottom: 1px solid var(--gold-dim); padding-bottom: 15px; }
+    .card-head h3 { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 800; }
+    .card-head .price { font-size: 1.8rem; font-weight: 800; color: var(--gold); }
 
-    .sig-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 0; }
-    @media (max-width: 620px) { .sig-wrap { grid-template-columns: 1fr; } }
-    .sig-img { min-height: 300px; }
-    .sig-body { padding: 50px; }
+    .flavor-list { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+    .flavor-list li { font-size: 18px; font-weight: 600; color: #ffffff; padding-left: 30px; position: relative; }
+    .flavor-list li.popular::before { content: '★'; position: absolute; left: 0; color: var(--gold); }
+    .flavor-list li.special::before { content: '†'; position: absolute; left: 0; color: var(--gold); font-size: 22px; top: -2px; }
+    .flavor-list li:not(.popular):not(.special)::before { content: '•'; position: absolute; left: 0; color: var(--gold); opacity: 0.5; }
 
-    .flavor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
-    @media (max-width: 620px) { .flavor-grid { grid-template-columns: 1fr; } }
-    .flavor-card { padding: 40px; }
-    .flavor-tag { display: inline-block; background: var(--gold); color: #000; font-weight: 800; padding: 8px 20px; border-radius: 999px; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; }
-    .flavor-list { list-style: none; display: flex; flex-direction: column; gap: 15px; }
-    .flavor-list li { font-size: 17px; font-weight: 700; color: #ffffff; padding-left: 25px; position: relative; }
-    .flavor-list li::before { content: '★'; position: absolute; left: 0; color: var(--gold); }
-    .flavor-list li small { display: block; font-size: 12px; color: var(--gold); font-weight: 500; margin-top: 5px; opacity: 0.9; }
+    /* ── MENU LEGEND (THE GUIDE) ── */
+    .menu-legend {
+      margin-top: 30px; padding: 20px; border-radius: 12px; background: rgba(255,255,255,0.03);
+      display: flex; justify-content: center; gap: 40px; font-size: 13px; font-weight: 600; letter-spacing: 1px; color: var(--gold);
+    }
+    @media (max-width: 480px) { .menu-legend { flex-direction: column; align-items: center; gap: 15px; } }
 
-    .info-card { margin-top: 80px; padding: 60px; text-align: center; }
-    .schedule-big { font-size: 2rem; font-weight: 800; color: var(--gold); letter-spacing: 2px; margin: 20px 0; }
+    /* ── BIG IMAGE BANNER ── */
+    .mid-banner {
+      height: 400px; width: 100%; margin: 100px 0; border-radius: var(--r-lg);
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('grok-image-98174780-faf4-44e6-81cd-4d413a0133a7.png') center/cover no-repeat;
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .banner-text { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; color: #ffffff; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.8)); }
 
-    footer { text-align: center; margin-top: 100px; padding: 80px 20px; border-top: 2px solid var(--gold); }
-    .footer-name { font-size: 2rem; font-weight: 800; color: #ffffff; margin-bottom: 20px; }
-    .footer-meta { font-size: 14px; font-weight: 700; color: #ffffff; line-height: 2; margin-bottom: 40px; }
+    /* ── INFO BOXES ── */
+    .info-section { display: grid; grid-template-columns: 1fr 1.5fr; gap: 30px; margin-top: 80px; }
+    @media (max-width: 768px) { .info-section { grid-template-columns: 1fr; } }
+    .info-box { padding: 40px; }
+    .info-box h4 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--gold); margin-bottom: 15px; }
+    .info-box p { font-size: 16px; line-height: 1.7; font-weight: 500; color: #e0e0f0; }
+
+    footer { text-align: center; margin-top: 150px; padding: 100px 24px; border-top: 1px solid var(--gold-dim); }
+    .footer-name { font-size: 2.2rem; font-weight: 800; color: #ffffff; margin-bottom: 20px; letter-spacing: 1px; }
+    .footer-meta { font-size: 15px; font-weight: 600; color: #ffffff; line-height: 2.2; margin-bottom: 40px; }
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
   </style>
@@ -96,80 +124,96 @@
 <body>
   <div class="page">
     <header>
-      <div class="hero-eyebrow">Cedar City, Utah</div>
+      <div class="label-big" style="color: var(--gold); opacity: 0.8;">Cedar City, Utah</div>
       <h1>M's Simply <span class="italic">Sourdough</span></h1>
       <p class="hero-sub">The Art of the Slow Rise</p>
     </header>
 
-    <!-- ── THE "CALL OR TEXT" PORTION ── -->
-    <section class="glass urgent-contact">
-      <div class="urgent-label">ORDER NOW • CALL OR TEXT</div>
+    <!-- ── SMART CALL BANNER ── -->
+    <section class="contact-banner">
+      <div class="label-big">Call or Text to Order</div>
       <a href="tel:4355597334" class="urgent-phone">(435) 559-7334</a>
-      <a href="tel:4355597334" class="call-btn">TAP TO CALL OR TEXT</a>
-      <p style="margin-top: 25px; font-weight: 600; color: #ffffff; letter-spacing: 1px;">Email: MSimplySourdough@gmail.com</p>
+      <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+        <a href="tel:4355597334" class="btn">Tap to Order</a>
+        <a href="mailto:MSimplySourdough@gmail.com" class="btn" style="background: transparent; color: #fff; border: 1px solid #fff;">Email Us</a>
+      </div>
     </section>
 
-    <div class="divider"><div class="d-gem"></div></div>
-
     <!-- SIGNATURE SECTION -->
-    <div class="glass sig-wrap">
-      <div class="sig-img">
-        <img src="grok-image-1f5c4514-6621-48c2-baca-105955c6edc2.png" alt="Sourdough" style="width:100%;height:100%;object-fit:cover;" />
-      </div>
-      <div class="sig-body">
-        <p class="section-label">The Foundation</p>
+    <div class="glass" style="display: grid; grid-template-columns: 1fr 1fr; margin-top: 80px;">
+      <img src="grok-image-1f5c4514-6621-48c2-baca-105955c6edc2.png" alt="Signature" style="width:100%; height:100%; object-fit:cover; border-right: 1px solid rgba(255,255,255,0.1);" />
+      <div style="padding: 60px 50px;">
+        <span class="section-label" style="text-align: left;">The Foundation</span>
         <h2 class="card-title">The Signature Loaf</h2>
-        <p class="card-desc">A heritage-focused bake. Hand-mixed with ancient patience, resulting in a dark flavored crust and a soft, custard-like crumb.</p>
-        <div style="margin-top: 30px; display: flex; align-items: center; justify-content: space-between;">
-          <div style="font-size: 2.5rem; font-weight: 800;">$8</div>
-          <a href="tel:4355597334" class="call-btn" style="padding: 12px 30px; font-size: 14px;">Order</a>
-        </div>
+        <p class="card-desc" style="margin-bottom: 30px;">A heritage-focused bake. Hand-mixed with ancient patience, resulting in a dark flavored crust and a soft, custard-like crumb.</p>
+        <div style="font-size: 3rem; font-weight: 800; color: var(--gold);">$8</div>
       </div>
     </div>
 
     <!-- MENU SECTION -->
-    <section style="margin-top: 100px;">
-      <div style="text-align: center; margin-bottom: 40px;">
-        <p class="section-label">Curated Infusions</p>
-        <h2 class="card-title">Weekly Selection</h2>
-      </div>
+    <section class="menu-section">
+      <span class="section-label">Handcrafted Selection</span>
+      <h2 class="card-title" style="text-align: center; font-size: 3.5rem; margin-bottom: 50px;">The Menu</h2>
 
-      <div class="flavor-grid">
-        <div class="glass flavor-card">
-          <span class="flavor-tag">Savory Loaves — $13</span>
+      <div class="menu-grid">
+        <!-- Savory -->
+        <div class="glass menu-card">
+          <div class="card-head">
+            <h3>Savory</h3>
+            <div class="price">$13</div>
+          </div>
           <ul class="flavor-list">
-            <li>Classic Jalapeño &amp; Cheddar</li>
+            <li class="popular">Classic Jalapeño &amp; Cheddar</li>
             <li>Jalapeño, Bacon &amp; Cheddar</li>
-            <li>Pesto &amp; Mozzarella</li>
+            <li class="popular">Pesto &amp; Mozzarella</li>
             <li>Pepperoni Pizza</li>
             <li>Cheesy Pizza</li>
             <li>Italian Herb &amp; Cheese</li>
             <li>Buffalo Jalapeño Popper</li>
-            <li>Pepper Jack</li>
+            <li class="popular">Pepper Jack</li>
             <li>Sun-Dried Tomato &amp; Asiago</li>
           </ul>
         </div>
 
-        <div class="glass flavor-card">
-          <span class="flavor-tag">Sweet Loaves — $13</span>
+        <!-- Sweet -->
+        <div class="glass menu-card">
+          <div class="card-head">
+            <h3>Sweet</h3>
+            <div class="price">$13</div>
+          </div>
           <ul class="flavor-list">
-            <li>Double Chocolate</li>
+            <li class="popular">Double Chocolate</li>
             <li>Raspberry Cream Cheese</li>
             <li>Honey Walnut</li>
-            <li>Cinnamon Brown Sugar Swirl<small>Apples can be added on request</small></li>
+            <li class="popular special">Cinnamon Brown Sugar Swirl</li>
             <li>Lemon Blueberry</li>
           </ul>
         </div>
       </div>
+
+      <!-- ── THE LEGEND (GUIDE) ── -->
+      <div class="menu-legend">
+        <span><strong style="color: var(--gold);">★</strong> Most Popular Items</span>
+        <span><strong style="color: var(--gold);">†</strong> Apples can be added upon request</span>
+      </div>
     </section>
 
-    <!-- SCHEDULE SECTION -->
-    <div class="glass info-card">
-      <p class="section-label">Pickup & Delivery</p>
-      <div class="schedule-big">THURSDAY – SUNDAY</div>
-      <p class="card-desc" style="font-size: 18px; font-weight: 700;">Small 6" loaves available upon request</p>
-      <div style="margin-top: 40px;">
-        <a href="tel:4355597334" class="call-btn">CALL OR TEXT TO ORDER</a>
+    <!-- ARTISAN BANNER -->
+    <div class="mid-banner">
+      <h2 class="banner-text">Slow Fermented.<br>Pure Ingredients.</h2>
+    </div>
+
+    <!-- INFO BOXES -->
+    <div class="info-section">
+      <div class="glass info-box">
+        <h4>Schedule</h4>
+        <p style="color: var(--gold); font-size: 1.4rem; font-weight: 800; margin-bottom: 10px;">Thursday – Sunday</p>
+        <p>Pickup and delivery available throughout Cedar City. Other days by arrangement.</p>
+      </div>
+      <div class="glass info-box">
+        <h4>Special Requests</h4>
+        <p style="margin-bottom: 15px;">We offer small 6" loaves upon request—perfect for gifts or sampling our wide range of infusions.</p>
+        <a href="tel:4355597334" class="btn" style="margin-top: 0; padding: 12px 30px;">Inquire Here</a>
       </div>
     </div>
 
@@ -179,12 +223,9 @@
         ESTABLISHED 2026 • CEDAR CITY, UTAH<br>
         HANDCRAFTED ARTISAN BAKERY<br>
         PICKUP & DELIVERY: THURSDAY–SUNDAY<br>
-        SMALL 6" LOAVES AVAILABLE UPON REQUEST
-      </div>
-      <div style="font-size: 22px; font-weight: 800; color: var(--gold); margin-bottom: 40px;">
         (435) 559-7334
       </div>
-      <p style="font-size: 12px; letter-spacing: 3px; font-weight: 800; color: #ffffff;">DESIGN BY PAN-DIT PRESTIGE</p>
+      <p style="font-size: 12px; letter-spacing: 4px; font-weight: 800; color: #ffffff; opacity: 0.8;">DESIGN BY PAN-DIT PRESTIGE</p>
     </footer>
   </div>
 </body>
