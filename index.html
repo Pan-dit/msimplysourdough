@@ -10,22 +10,17 @@
 
     :root {
       --bg:          #04040a;
-      --gold:        #e5b567; /* Brighter gold for contrast */
+      --gold:        #e5b567;
       --gold-light:  #f8d69d;
       --gold-glow:   rgba(229,181,103,0.45);
       --rose:        #d080a0;
-      --text:        #ffffff; /* Pure white for maximum readability */
-      --text-mid:    #e0e0f0; /* Crisp light gray/white */
-      --text-soft:   #a0a0c0; /* Darker but still visible */
-      --text-dim:    #4a4a68;
+      --text:        #ffffff;
+      --text-mid:    #e0e0f0;
+      --text-soft:   #ffffff; /* Changed to white for readability */
+      --text-dim:    #6a6a88;
 
-      /* Glass anatomy - Darkened for better text contrast */
       --glass-bg:         rgba(10, 10, 20, 0.85);
-      --glass-specular:   rgba(255,255,255,0.08);
-      --glass-hot:        rgba(255,255,255,0.15);
       --glass-edge-outer: rgba(255,255,255,0.15);
-      --glass-shadow-col: rgba(0,0,0,0.9);
-
       --r-md: 24px;
       --r-lg: 36px;
     }
@@ -46,18 +41,9 @@
       inset: 0;
       z-index: 0;
       background:
-        repeating-linear-gradient(
-          118deg,
-          transparent 0px,
-          transparent 120px,
-          rgba(255,255,255,0.015) 121px,
-          transparent 122px,
-          transparent 280px,
-          rgba(255,255,255,0.01) 281px,
-          transparent 282px
-        ),
-        radial-gradient(ellipse 100% 70% at 50% 0%,   #0d0d22 0%, transparent 65%),
-        radial-gradient(ellipse 80%  60% at 0%   100%, #0a0818 0%, transparent 60%),
+        repeating-linear-gradient(118deg, transparent 0px, transparent 120px, rgba(255,255,255,0.015) 121px, transparent 122px, transparent 280px, rgba(255,255,255,0.01) 281px, transparent 282px),
+        radial-gradient(ellipse 100% 70% at 50% 0%, #0d0d22 0%, transparent 65%),
+        radial-gradient(ellipse 80% 60% at 0% 100%, #0a0818 0%, transparent 60%),
         #04040a;
       pointer-events: none;
     }
@@ -68,8 +54,8 @@
       z-index: 0;
       pointer-events: none;
       background:
-        radial-gradient(ellipse 55% 40% at 18%  12%,  rgba(229,181,103,0.12)  0%, transparent 55%),
-        radial-gradient(ellipse 45% 35% at 82%  80%,  rgba(208,128,160,0.10) 0%, transparent 55%);
+        radial-gradient(ellipse 55% 40% at 18% 12%, rgba(229,181,103,0.12) 0%, transparent 55%),
+        radial-gradient(ellipse 45% 35% at 82% 80%, rgba(208,128,160,0.10) 0%, transparent 55%);
     }
 
     .page {
@@ -89,11 +75,7 @@
       border: 1px solid var(--glass-edge-outer);
       outline: 1px solid rgba(0,0,0,0.7);
       outline-offset: -2px;
-      box-shadow:
-        0 32px 80px rgba(0,0,0,0.85),
-        0 12px 32px rgba(0,0,0,0.65),
-        0 1px 0 0 var(--glass-hot) inset,
-        0 -1px 0 0 rgba(0,0,0,0.5) inset;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.85), 0 12px 32px rgba(0,0,0,0.65);
       overflow: hidden;
       transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.45s cubic-bezier(0.23, 1, 0.32, 1);
     }
@@ -106,11 +88,7 @@
 
     .glass > * { position: relative; z-index: 3; }
 
-    header {
-      text-align: center;
-      padding: 88px 20px 64px;
-      animation: fadeUp 0.9s ease both;
-    }
+    header { text-align: center; padding: 88px 20px 64px; animation: fadeUp 0.9s ease both; }
 
     .hero-eyebrow {
       display: inline-flex;
@@ -123,21 +101,10 @@
       color: var(--gold);
       margin-bottom: 34px;
     }
-    .hero-eyebrow::before, .hero-eyebrow::after {
-      content: '';
-      width: 32px; height: 1px;
-      background: linear-gradient(to right, transparent, var(--gold));
-    }
+    .hero-eyebrow::before, .hero-eyebrow::after { content: ''; width: 32px; height: 1px; background: linear-gradient(to right, transparent, var(--gold)); }
     .hero-eyebrow::after { background: linear-gradient(to left, transparent, var(--gold)); }
 
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(3.2rem, 10vw, 6.5rem);
-      font-weight: 900;
-      line-height: 0.92;
-      letter-spacing: -0.02em;
-      color: #ffffff;
-    }
+    h1 { font-family: 'Playfair Display', serif; font-size: clamp(3.2rem, 10vw, 6.5rem); font-weight: 900; line-height: 0.92; letter-spacing: -0.02em; color: #ffffff; }
     h1 .italic {
       font-style: italic;
       font-weight: 700;
@@ -149,79 +116,34 @@
       filter: drop-shadow(0 0 20px rgba(229,181,103,0.5));
     }
 
-    .hero-sub {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-      font-weight: 400;
-      color: var(--text-mid);
-      margin-top: 26px;
-      letter-spacing: 0.08em;
-    }
+    .hero-sub { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-weight: 400; color: var(--text-mid); margin-top: 26px; letter-spacing: 0.08em; }
 
-    .contact-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 38px;
-    }
+    .contact-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 38px; }
 
     .contact-pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       font-size: 13px;
-      font-weight: 400;
+      font-weight: 500;
       color: #ffffff;
       background: rgba(20,20,40,0.8);
-      border: 1px solid rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.3);
       padding: 12px 24px;
       border-radius: 999px;
       text-decoration: none;
       backdrop-filter: blur(12px);
       transition: all 0.3s ease;
     }
-    .contact-pill:hover {
-      color: var(--gold);
-      border-color: var(--gold);
-      transform: translateY(-2px);
-    }
+    .contact-pill:hover { color: var(--gold); border-color: var(--gold); transform: translateY(-2px); }
 
-    .divider {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      margin: 56px 0 48px;
-    }
-    .d-line {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, transparent, rgba(255,255,255,0.2) 50%, transparent);
-    }
-    .d-gem {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 15px var(--gold-glow);
-      margin: 0 20px;
-    }
+    .divider { display: flex; align-items: center; gap: 0; margin: 56px 0 48px; }
+    .d-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(255,255,255,0.2) 50%, transparent); }
+    .d-gem { width: 10px; height: 10px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 15px var(--gold-glow); margin: 0 20px; }
 
-    .section-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 12px;
-    }
+    .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
 
-    .sig-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 0;
-      animation: fadeUp 0.9s 0.12s ease both;
-    }
+    .sig-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 0; animation: fadeUp 0.9s 0.12s ease both; }
     @media (max-width: 620px) { .sig-wrap { grid-template-columns: 1fr; } }
 
     .sig-img { min-height: 300px; position: relative; overflow: hidden; }
@@ -230,119 +152,52 @@
     .sig-body { padding: 44px 40px; }
     @media (max-width: 480px) { .sig-body { padding: 32px 24px; } }
 
-    .card-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      font-weight: 700;
-      color: #ffffff;
-      line-height: 1.1;
-      margin-bottom: 16px;
-    }
+    .card-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; color: #ffffff; line-height: 1.1; margin-bottom: 16px; }
 
-    .card-desc {
-      font-size: 15px;
-      font-weight: 400;
-      line-height: 1.8;
-      color: var(--text-mid);
-    }
+    .card-desc { font-size: 15px; font-weight: 400; line-height: 1.8; color: #ffffff; }
 
-    .card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-top: 36px;
-      padding-top: 28px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
+    .card-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-top: 36px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.1); }
 
-    .price {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.2rem;
-      font-weight: 900;
-      line-height: 1;
-      color: #ffffff;
-    }
-    .price small {
-      font-family: 'Outfit', sans-serif;
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--text-soft);
-      margin-left: 6px;
-    }
+    .price { font-family: 'Playfair Display', serif; font-size: 3.2rem; font-weight: 900; line-height: 1; color: #ffffff; }
+    .price small { font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 400; color: #e0e0f0; margin-left: 6px; }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'Outfit', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      padding: 14px 32px;
-      border-radius: 999px;
-      text-decoration: none;
-      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-      cursor: pointer;
-      border: none;
-    }
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; padding: 14px 32px; border-radius: 999px; text-decoration: none; transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1); cursor: pointer; border: none; }
 
-    .btn-gold {
-      background: linear-gradient(135deg, #d4a017 0%, var(--gold-light) 100%);
-      color: #000000;
-      box-shadow: 0 4px 24px rgba(229,181,103,0.5);
-    }
+    .btn-gold { background: linear-gradient(135deg, #d4a017 0%, var(--gold-light) 100%); color: #000000; box-shadow: 0 4px 24px rgba(229,181,103,0.5); }
     .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(229,181,103,0.7); }
 
-    .btn-ghost {
-      background: rgba(255,255,255,0.08);
-      color: #ffffff;
-      border: 1px solid rgba(255,255,255,0.3);
-    }
+    .btn-ghost { background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.3); }
     .btn-ghost:hover { color: var(--gold); border-color: var(--gold); transform: translateY(-2px); }
 
     .flavor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
     @media (max-width: 560px) { .flavor-grid { grid-template-columns: 1fr; } }
 
     .flavor-card { padding: 36px 32px; }
-    .flavor-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.26em;
-      text-transform: uppercase;
-      padding: 6px 16px;
-      border-radius: 999px;
-      margin-bottom: 20px;
-    }
+    .flavor-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; padding: 6px 16px; border-radius: 999px; margin-bottom: 20px; }
     .savory .flavor-tag { color: #000000; background: var(--gold); }
     .sweet .flavor-tag { color: #ffffff; background: var(--rose); }
 
     .flavor-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-    .flavor-list li { font-size: 15px; font-weight: 500; color: #ffffff; padding-left: 20px; position: relative; }
-    .flavor-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 2px; background: var(--gold); opacity: 0.8; }
-    .flavor-list li.popular::after {
-      content: '★';
-      color: var(--gold);
-      font-size: 12px;
-      margin-left: 10px;
-      filter: drop-shadow(0 0 5px var(--gold-glow));
-    }
-    .flavor-list li small { display: block; font-size: 11px; color: var(--text-soft); font-weight: 400; margin-top: 4px; font-style: italic; }
+    .flavor-list li { font-size: 15px; font-weight: 600; color: #ffffff; padding-left: 20px; position: relative; }
+    .flavor-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 2px; background: var(--gold); }
+    .flavor-list li.popular::after { content: '★'; color: var(--gold); font-size: 12px; margin-left: 10px; filter: drop-shadow(0 0 5px var(--gold-glow)); }
+    .flavor-list li small { display: block; font-size: 11px; color: #e0e0f0; font-weight: 400; margin-top: 4px; font-style: italic; }
 
-    .info-card { margin-top: 80px; padding: 50px; text-align: center; border: 1px solid rgba(229,181,103,0.3); }
+    .flavor-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.06); }
+
+    .info-card { margin-top: 80px; padding: 50px; text-align: center; border: 1px solid rgba(229,181,103,0.4); }
     .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; text-align: left; }
-    @media (max-width: 620px) { .info-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 620px) { .info-grid { grid-template-columns: 1fr; gap: 30px; } }
 
     .info-item h4 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--gold); margin-bottom: 12px; }
-    .info-item p { font-size: 15px; font-weight: 400; color: var(--text-mid); line-height: 1.7; }
+    .info-item p { font-size: 15px; font-weight: 500; color: #ffffff; line-height: 1.7; }
 
-    footer { text-align: center; margin-top: 120px; padding: 80px 20px; border-top: 1px solid rgba(255,255,255,0.05); }
-    .footer-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: #ffffff; margin-bottom: 12px; }
-    .footer-meta { font-size: 12px; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-soft); line-height: 2.4; }
+    footer { text-align: center; margin-top: 120px; padding: 80px 20px; border-top: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); }
+    .footer-name { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: #ffffff; margin-bottom: 15px; }
+    .footer-meta { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; color: #ffffff; line-height: 2; margin-bottom: 30px; }
+    .footer-contact { font-size: 15px; font-weight: 600; color: var(--gold); margin-top: 20px; display: flex; justify-content: center; gap: 15px; align-items: center; }
+    .footer-contact a { color: var(--gold); text-decoration: none; border-bottom: 1px solid transparent; transition: border 0.3s; }
+    .footer-contact a:hover { border-bottom: 1px solid var(--gold); }
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -360,7 +215,7 @@
       <h1>M's Simply <span class="italic">Sourdough</span></h1>
       <p class="hero-sub">The Art of the Slow Rise</p>
       <div class="contact-bar">
-        <a class="contact-pill" href="tel:4355597334">Call or Text: (435) 559-7334</a>
+        <a class="contact-pill" href="tel:4355597334">(435) 559-7334</a>
         <a class="contact-pill" href="mailto:MSimplySourdough@gmail.com">MSimplySourdough@gmail.com</a>
       </div>
     </header>
@@ -431,8 +286,8 @@
     <div class="glass info-card">
       <p class="section-label">Ordering Details</p>
       <h2 class="card-title" style="margin-bottom: 10px;">Pickup & Delivery Schedule</h2>
-      <p class="card-desc" style="color: var(--gold); font-weight: 600; letter-spacing: 2px; font-size: 1.4rem;">THURSDAY – SUNDAY</p>
-      <p class="card-desc" style="font-size: 14px; margin-top: 10px;">(Other days available by arrangement)</p>
+      <p class="card-desc" style="color: var(--gold); font-weight: 700; letter-spacing: 2px; font-size: 1.6rem;">THURSDAY – SUNDAY</p>
+      <p class="card-desc" style="font-size: 15px; margin-top: 10px; color: #ffffff;">(Other days available by arrangement)</p>
 
       <div class="info-grid">
         <div class="info-item">
@@ -455,9 +310,15 @@
       <div class="footer-name">M's Simply Sourdough</div>
       <div class="footer-meta">
         ESTABLISHED 2026 • CEDAR CITY, UTAH<br>
-        HANDCRAFTED ARTISAN BAKERY • HAND MIXED • SLOW FERMENTED
+        HANDCRAFTED ARTISAN BAKERY • PICKUP & DELIVERY: THURSDAY–SUNDAY<br>
+        SMALL 6" LOAVES AVAILABLE UPON REQUEST
       </div>
-      <p style="opacity: 0.3; font-size: 0.75rem; margin-top: 60px; letter-spacing: 2px; color: #ffffff;">DESIGN BY PAN-DIT PRESTIGE</p>
+      <div class="footer-contact">
+        <a href="tel:4355597334">(435) 559-7334</a>
+        <span style="color: rgba(255,255,255,0.3)">|</span>
+        <a href="mailto:MSimplySourdough@gmail.com">Email Us</a>
+      </div>
+      <p style="font-size: 0.8rem; margin-top: 60px; letter-spacing: 3px; color: #ffffff; font-weight: 600;">DESIGN BY PAN-DIT PRESTIGE</p>
     </footer>
   </div>
 </body>
