@@ -4,17 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>M's Simply Sourdough | Cedar City Artisanal Bakery</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600;700;800&family=Great+Vibes&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --bg:          #04040a;
-      --gold:        #e5b567;
+      --gold:        #f0c878;
+      --gold-dim:    rgba(240,200,120,0.2);
+      --gold-glow:   rgba(240,200,120,0.4);
       --text:        #ffffff;
       --text-mid:    #e0e0f0;
-      --glass-bg:    rgba(15, 15, 25, 0.95);
-      --r-md:        20px;
+      --glass-bg:    rgba(15, 15, 25, 0.92);
+      --r-lg:        36px;
     }
 
     html { scroll-behavior: smooth; }
@@ -26,47 +28,68 @@
       overflow-x: hidden;
     }
 
+    /* ── Dark Marble Glow Background ── */
     body::before {
       content: ''; position: fixed; inset: 0; z-index: 0;
-      background: radial-gradient(ellipse 100% 70% at 50% 0%, #0d0d22 0%, transparent 65%), #04040a;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(240,200,120,0.08) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(208,128,160,0.08) 0%, transparent 40%),
+        #04040a;
       pointer-events: none;
     }
 
-    .page { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; padding: 0 20px 60px; }
+    .page { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; padding: 0 24px 100px; }
+
+    .glass {
+      position: relative; border-radius: var(--r-lg); background: var(--glass-bg);
+      backdrop-filter: blur(24px) saturate(1.8); -webkit-backdrop-filter: blur(24px) saturate(1.8);
+      border: 1px solid rgba(255,255,255,0.15); outline: 1px solid rgba(0,0,0,0.8); outline-offset: -2px;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.9); overflow: hidden;
+    }
 
     .cursive { font-family: 'Great Vibes', cursive; color: #ffffff; }
 
-    header { text-align: center; padding: 50px 20px 20px; }
-    header h1 { font-size: clamp(3rem, 10vw, 4.5rem); margin-bottom: 5px; font-weight: 400; }
+    header { text-align: center; padding: 80px 20px 40px; }
+    header h1 { font-size: clamp(4rem, 12vw, 6rem); margin-bottom: 10px; font-weight: 400; color: #ffffff; text-shadow: 0 0 20px rgba(255,255,255,0.2); }
     
-    .contact-line { font-size: 1.2rem; font-weight: 600; color: #ffffff; margin-top: 5px; text-decoration: none; display: block; }
-    .contact-line span { font-weight: 400; color: #ffffff; margin-left: 10px; }
-    .email-line { font-size: 1.1rem; font-weight: 500; color: #ffffff; margin-top: 5px; text-decoration: none; display: block; }
+    .contact-line { font-size: clamp(1.4rem, 4vw, 1.8rem); font-weight: 700; color: #ffffff; margin-top: 10px; display: block; text-decoration: none; }
+    .contact-line span { font-weight: 400; color: var(--gold); margin-left: 10px; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; }
+    .email-line { font-size: 1.2rem; font-weight: 500; color: #ffffff; margin-top: 8px; text-decoration: none; display: block; opacity: 0.9; }
 
-    /* ── The Bar Style from Image ── */
-    .bar-line { width: 100%; height: 3px; background: #ffffff; margin: 15px 0; position: relative; }
-    .bar-line::before, .bar-line::after { content: ''; position: absolute; top: -5px; width: 3px; height: 13px; background: #ffffff; }
+    /* ── The Bar Style from Flyer ── */
+    .bar-line { width: 100%; height: 3px; background: #ffffff; margin: 20px 0; position: relative; }
+    .bar-line::before, .bar-line::after { content: ''; position: absolute; top: -6px; width: 3px; height: 15px; background: #ffffff; }
     .bar-line::before { left: 0; } .bar-line::after { right: 0; }
 
-    .plain-section { text-align: center; padding: 10px 0; font-size: 1.2rem; font-weight: 600; letter-spacing: 1px; }
+    .plain-box { text-align: center; padding: 10px 0; font-size: 1.6rem; font-weight: 700; letter-spacing: 1px; color: #ffffff; }
 
-    .menu-section { margin-top: 30px; text-align: center; }
-    .menu-title { font-size: 2.8rem; margin-bottom: 5px; }
-    .popular-note { font-size: 12px; font-style: italic; color: #ffffff; margin-bottom: 20px; display: block; }
+    .menu-section { margin-top: 60px; }
+    .menu-title { font-size: clamp(3rem, 8vw, 4rem); text-align: center; margin-bottom: 5px; color: var(--gold); }
+    .popular-note { font-size: 14px; text-align: center; font-style: italic; color: #ffffff; margin-bottom: 30px; display: block; opacity: 0.8; }
 
-    .flavor-list { list-style: none; display: flex; flex-direction: column; gap: 8px; text-align: center; margin-bottom: 40px; }
-    .flavor-list li { font-size: 16px; font-weight: 500; color: #ffffff; letter-spacing: 0.5px; }
+    .menu-card { padding: 50px 40px; margin-bottom: 40px; }
+    
+    .flavor-list { list-style: none; display: flex; flex-direction: column; gap: 15px; text-align: center; }
+    .flavor-list li { font-size: 19px; font-weight: 600; color: #ffffff; letter-spacing: 0.5px; }
+    .flavor-list li small { font-size: 14px; color: var(--gold); font-weight: 500; display: block; margin-top: 5px; }
 
-    .fine-print { text-align: center; margin-top: 40px; }
-    .fine-print p { font-size: 1.1rem; font-weight: 800; margin-bottom: 12px; color: #ffffff; }
+    /* ── Signature Section ── */
+    .sig-wrap { display: grid; grid-template-columns: 1fr 1.2fr; margin: 60px 0; }
+    @media (max-width: 620px) { .sig-wrap { grid-template-columns: 1fr; } }
+    .sig-img { min-height: 300px; }
+    .sig-body { padding: 50px; display: flex; flex-direction: column; justify-content: center; }
 
-    footer { text-align: center; margin-top: 60px; padding: 40px 20px; border-top: 1px solid rgba(255,255,255,0.1); }
-    .footer-meta { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #ffffff; opacity: 0.6; line-height: 2; }
+    .fine-print { text-align: center; margin-top: 60px; }
+    .fine-print p { font-size: 1.3rem; font-weight: 800; margin-bottom: 15px; color: #ffffff; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+
+    footer { text-align: center; margin-top: 100px; padding: 80px 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .footer-meta { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #ffffff; opacity: 0.6; line-height: 2.5; }
 
     @media (max-width: 480px) {
-      header h1 { font-size: 3rem; }
-      .menu-title { font-size: 2.2rem; }
-      .flavor-list li { font-size: 15px; }
+      header h1 { font-size: 3.5rem; }
+      .menu-title { font-size: 3rem; }
+      .flavor-list li { font-size: 17px; }
+      .sig-body { padding: 30px; }
     }
   </style>
 </head>
@@ -79,35 +102,55 @@
     </header>
 
     <div class="bar-line"></div>
-    <div class="plain-section">Plain Sourdough Loaf - $8</div>
+    <div class="plain-box">Plain Sourdough Loaf - $8</div>
     <div class="bar-line"></div>
+
+    <!-- SIGNATURE IMAGE SECTION -->
+    <div class="glass sig-wrap">
+      <div class="sig-img">
+        <img src="grok-image-1f5c4514-6621-48c2-baca-105955c6edc2.png" alt="Sourdough" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+      <div class="sig-body">
+        <h3 class="cursive" style="font-size: 2.5rem; margin-bottom: 15px;">The Signature Bake</h3>
+        <p style="font-size: 16px; line-height: 1.7; font-weight: 500; opacity: 0.9;">Hand-mixed with ancient patience, resulting in a dark flavored crust and a soft, custard-like crumb. The foundation of everything we do.</p>
+      </div>
+    </div>
 
     <div class="menu-section">
       <h2 class="cursive menu-title">Savory Loaves- $13</h2>
       <span class="popular-note">(* loaves are most popular)</span>
       
-      <ul class="flavor-list">
-        <li>*Classic Jalapeno &amp; Cheddar</li>
-        <li>Jalapeno, Bacon &amp; Cheddar</li>
-        <li>*Pesto and Mozzarella</li>
-        <li>Pepperoni Pizza</li>
-        <li>Cheesy Pizza</li>
-        <li>Italian Herb &amp; Cheese</li>
-        <li>Buffalo Jalapeno Popper</li>
-        <li>*Pepperjack</li>
-        <li>Sundried Tomato &amp; Asiago</li>
-      </ul>
+      <div class="glass menu-card">
+        <ul class="flavor-list">
+          <li>*Classic Jalapeno &amp; Cheddar</li>
+          <li>Jalapeno, Bacon &amp; Cheddar</li>
+          <li>*Pesto and Mozzarella</li>
+          <li>Pepperoni Pizza</li>
+          <li>Cheesy Pizza</li>
+          <li>Italian Herb &amp; Cheese</li>
+          <li>Buffalo Jalapeno Popper</li>
+          <li>*Pepperjack</li>
+          <li>Sundried Tomato &amp; Asiago</li>
+        </ul>
+      </div>
     </div>
 
     <div class="menu-section">
       <h2 class="cursive menu-title">Sweet Loaves- $13</h2>
-      <ul class="flavor-list">
-        <li>*Double Chocolate</li>
-        <li>Raspberry Cream Cheese</li>
-        <li>Honey Walnut</li>
-        <li>*Cinnamon Brown Sugar Swirl (can add apples)</li>
-        <li>Lemon Blueberry</li>
-      </ul>
+      <div class="glass menu-card">
+        <ul class="flavor-list">
+          <li>*Double Chocolate</li>
+          <li>Raspberry Cream Cheese</li>
+          <li>Honey Walnut</li>
+          <li>*Cinnamon Brown Sugar Swirl <small>(can add apples)</small></li>
+          <li>Lemon Blueberry</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PROCESS IMAGE BANNER -->
+    <div class="glass" style="height: 300px; margin: 60px 0; border-radius: var(--r-lg);">
+      <img src="grok-image-98174780-faf4-44e6-81cd-4d413a0133a7.png" alt="Artisanal Process" style="width:100%; height:100%; object-fit:cover; opacity: 0.8;" />
     </div>
 
     <div class="fine-print">
@@ -118,9 +161,9 @@
     <footer>
       <div class="footer-meta">
         ESTABLISHED 2026 • CEDAR CITY, UTAH<br>
-        HANDCRAFTED ARTISAN BAKERY
+        HANDCRAFTED ARTISAN BAKERY • HAND MIXED • SLOW FERMENTED
       </div>
-      <p style="font-size: 9px; margin-top: 30px; opacity: 0.4; letter-spacing: 2px;">DESIGN BY PAN-DIT PRESTIGE</p>
+      <p style="font-size: 11px; margin-top: 40px; opacity: 0.4; letter-spacing: 3px; font-weight: 700;">DESIGN BY PAN-DIT PRESTIGE</p>
     </footer>
   </div>
 </body>
