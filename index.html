@@ -12,9 +12,9 @@
       --bg:          #020205;
       --gold:        #e5b567;
       --gold-glow:   rgba(229,181,103,0.3);
-      --glass:       rgba(15, 15, 25, 0.94);
-      --border:      rgba(255, 255, 255, 0.12);
-      --r-lg:        24px;
+      --glass:       rgba(15, 15, 25, 0.96);
+      --border:      rgba(255, 255, 255, 0.1);
+      --r-md:        16px;
     }
 
     html { scroll-behavior: smooth; }
@@ -24,93 +24,91 @@
       color: #ffffff;
       min-height: 100vh;
       overflow-x: hidden;
-      line-height: 1.5;
+      line-height: 1.4;
+      font-size: 14px;
     }
 
     body::before {
       content: ''; position: fixed; inset: 0; z-index: 0;
       background: 
-        radial-gradient(circle at 15% 15%, rgba(229,181,103,0.08) 0%, transparent 40%),
-        radial-gradient(circle at 85% 85%, rgba(80,70,180,0.08) 0%, transparent 40%),
+        radial-gradient(circle at 15% 15%, rgba(229,181,103,0.05) 0%, transparent 30%),
+        radial-gradient(circle at 85% 85%, rgba(80,70,180,0.05) 0%, transparent 30%),
         #020205;
       pointer-events: none;
     }
 
-    .page { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; padding: 0 20px 100px; }
+    .page { position: relative; z-index: 2; max-width: 550px; margin: 0 auto; padding: 0 20px 60px; }
 
     .glass {
-      position: relative; border-radius: var(--r-lg); background: var(--glass);
-      backdrop-filter: blur(30px) saturate(1.6); -webkit-backdrop-filter: blur(30px) saturate(1.6);
+      position: relative; border-radius: var(--r-md); background: var(--glass);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--border);
-      box-shadow: 0 30px 70px rgba(0,0,0,0.8);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.8);
       overflow: hidden;
     }
 
     .cursive { font-family: 'Great Vibes', cursive; color: #ffffff; font-weight: 400; }
 
-    /* ── Header ── */
-    header { text-align: center; padding: 60px 20px 30px; }
-    header h1 { font-size: clamp(2.8rem, 8vw, 4rem); margin-bottom: 5px; }
+    /* ── Compact Header ── */
+    header { text-align: center; padding: 40px 20px 20px; }
+    header h1 { font-size: 2.5rem; margin-bottom: 5px; }
     
-    .contact-hero { margin-top: 15px; }
+    .contact-hero { margin-top: 10px; }
     .contact-hero a { text-decoration: none; color: #ffffff; display: block; transition: 0.3s; }
-    .phone-text { font-size: 1.8rem; font-weight: 800; letter-spacing: 1px; }
-    .phone-label { font-size: 12px; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 4px; margin-top: 2px; }
-    .email-text { font-size: 1.1rem; font-weight: 500; opacity: 0.8; margin-top: 8px; }
-    .contact-hero a:hover { color: var(--gold); transform: scale(1.02); }
+    .phone-text { font-size: 1.4rem; font-weight: 800; letter-spacing: 0.5px; }
+    .phone-label { font-size: 10px; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 3px; }
+    .email-text { font-size: 0.95rem; font-weight: 500; opacity: 0.7; margin-top: 5px; }
 
-    /* ── Flyer Elements ── */
-    .flyer-bar { width: 100%; height: 3px; background: #ffffff; margin: 20px 0; position: relative; }
-    .flyer-bar::before, .flyer-bar::after { content: ''; position: absolute; top: -6px; width: 3px; height: 15px; background: #ffffff; }
+    /* ── Refined Flyer Elements ── */
+    .flyer-bar { width: 100%; height: 2px; background: #ffffff; margin: 15px 0; position: relative; }
+    .flyer-bar::before, .flyer-bar::after { content: ''; position: absolute; top: -4px; width: 2px; height: 10px; background: #ffffff; }
     .flyer-bar::before { left: 0; } .flyer-bar::after { right: 0; }
 
-    .plain-loaf { text-align: center; font-size: 1.4rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+    .plain-loaf { text-align: center; font-size: 1.1rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
 
-    /* ── Adaptive Image Frames ── */
-    .image-container { width: 100%; margin: 40px 0; border-radius: var(--r-lg); border: 1px solid var(--border); background: #000; overflow: hidden; line-height: 0; }
-    .image-container img { width: 100%; height: auto; display: block; }
+    /* ── Elegant Small Image Frames ── */
+    .image-container { width: 100%; margin: 25px 0; border-radius: var(--r-md); border: 1px solid var(--border); background: #000; overflow: hidden; line-height: 0; }
+    .image-container img { width: 100%; height: auto; display: block; opacity: 0.9; }
 
-    /* ── Menu Section ── */
-    .menu-card { padding: 40px 30px; margin-top: 30px; }
-    .menu-title { font-size: 2.8rem; text-align: center; margin-bottom: 5px; color: var(--gold); }
-    .popular-note { font-size: 13px; text-align: center; font-style: italic; margin-bottom: 30px; display: block; opacity: 0.8; }
+    /* ── Compact Menu Section ── */
+    .menu-card { padding: 30px 20px; margin-top: 20px; }
+    .menu-title { font-size: 2rem; text-align: center; margin-bottom: 2px; color: var(--gold); }
+    .popular-note { font-size: 11px; text-align: center; font-style: italic; margin-bottom: 25px; display: block; opacity: 0.7; }
 
-    .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-    @media (max-width: 600px) { .menu-grid { grid-template-columns: 1fr; gap: 40px; } }
+    .menu-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
 
-    .category-title { font-size: 1.3rem; font-weight: 800; border-bottom: 1px solid var(--gold); padding-bottom: 8px; margin-bottom: 20px; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; }
+    .category-title { font-size: 1.1rem; font-weight: 800; border-bottom: 1px solid var(--gold); padding-bottom: 5px; margin-bottom: 15px; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; }
     
-    .flavor-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-    .flavor-list li { font-size: 16px; font-weight: 600; color: #ffffff; }
+    .flavor-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .flavor-list li { font-size: 14px; font-weight: 600; color: #ffffff; }
     .flavor-list li.popular::before { content: '* '; color: var(--gold); font-weight: 800; }
-    .flavor-list li small { display: block; font-size: 12px; color: var(--gold); font-weight: 500; margin-top: 2px; }
+    .flavor-list li small { font-size: 11px; color: var(--gold); font-weight: 500; display: block; margin-top: 1px; }
 
-    /* ── Info Box ── */
-    .info-footer { text-align: center; margin-top: 60px; padding: 30px; border: 1px solid var(--gold); background: rgba(229,181,103,0.05); border-radius: var(--r-lg); }
-    .info-line { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; }
+    /* ── Compact Info ── */
+    .info-footer { text-align: center; margin-top: 40px; padding: 25px; border: 1px solid var(--gold); background: rgba(229,181,103,0.03); border-radius: var(--r-md); }
+    .info-line { font-size: 1rem; font-weight: 800; margin-bottom: 8px; }
 
-    footer { text-align: center; margin-top: 100px; padding: 60px 20px; border-top: 1px solid rgba(255,255,255,0.1); }
-    .footer-meta { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 3px; opacity: 0.6; line-height: 2; }
+    footer { text-align: center; margin-top: 60px; padding: 40px 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer-meta { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; opacity: 0.5; line-height: 1.8; }
 
-    /* ── Floating Action Button ── */
+    /* ── Mini Floating Action Button ── */
     .fab {
-      position: fixed; bottom: 25px; right: 25px; z-index: 100;
-      background: var(--gold); color: #000; padding: 14px 28px; border-radius: 999px;
-      font-weight: 800; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; font-size: 13px;
-      box-shadow: 0 10px 30px var(--gold-glow); transition: 0.3s;
+      position: fixed; bottom: 20px; right: 20px; z-index: 100;
+      background: var(--gold); color: #000; padding: 10px 20px; border-radius: 999px;
+      font-weight: 800; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; font-size: 11px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5); transition: 0.3s;
     }
-    .fab:hover { transform: scale(1.05) translateY(-3px); background: #ffffff; }
+    .fab:hover { transform: translateY(-2px); background: #ffffff; }
 
     @media (max-width: 480px) {
-      header h1 { font-size: 3rem; }
-      .menu-title { font-size: 2.5rem; }
-      .menu-card { padding: 30px 20px; }
-      .fab { left: 20px; right: 20px; bottom: 20px; text-align: center; }
+      header h1 { font-size: 2.2rem; }
+      .menu-title { font-size: 1.8rem; }
+      .fab { left: 20px; right: 20px; text-align: center; }
     }
   </style>
 </head>
 <body>
-  <a href="tel:4355597334" class="fab">Call or Text Order</a>
+  <a href="tel:4355597334" class="fab">Call or Text to Order</a>
 
   <div class="page">
     <header>
@@ -159,7 +157,7 @@
 
         <!-- Sweet -->
         <div>
-          <div class="category-title">Sweet Loaves - $13</div>
+          <div class="category-title" style="margin-top: 20px;">Sweet Loaves - $13</div>
           <ul class="flavor-list">
             <li class="popular">Double Chocolate</li>
             <li>Raspberry Cream Cheese</li>
@@ -189,7 +187,7 @@
         ESTABLISHED 2026 • CEDAR CITY, UTAH<br>
         HANDCRAFTED ARTISAN BAKERY • SLOW RISE • PURE INGREDIENTS
       </div>
-      <p style="font-size: 10px; margin-top: 30px; opacity: 0.4; letter-spacing: 2px;">DESIGN BY PAN-DIT PRESTIGE</p>
+      <p style="font-size: 9px; margin-top: 30px; opacity: 0.3; letter-spacing: 2px;">DESIGN BY PAN-DIT PRESTIGE</p>
     </footer>
   </div>
 </body>
