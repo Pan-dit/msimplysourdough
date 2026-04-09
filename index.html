@@ -23,7 +23,7 @@
       min-height: 100vh;
       overflow-x: hidden;
       line-height: 1.4;
-      font-size: 13px;
+      font-size: 14px;
     }
 
     body::before {
@@ -35,10 +35,10 @@
       pointer-events: none;
     }
 
-    .container { position: relative; z-index: 2; max-width: 420px; margin: 0 auto; padding: 30px 15px 100px; }
+    .container { position: relative; z-index: 2; max-width: 420px; margin: 0 auto; padding: 40px 15px 100px; }
 
     .glass-card {
-      padding: 30px 20px; border-radius: 24px; background: var(--glass);
+      padding: 40px 25px; border-radius: 24px; background: var(--glass);
       backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--border);
       box-shadow: 0 30px 60px rgba(0,0,0,0.9);
@@ -46,52 +46,46 @@
 
     .cursive { font-family: 'Great Vibes', cursive; color: #ffffff; font-weight: 400; line-height: 1; }
 
-    header { text-align: center; margin-bottom: 25px; }
-    header h1 { font-size: 2.2rem; margin-bottom: 10px; }
+    header { text-align: center; margin-bottom: 30px; }
+    header h1 { font-size: 2.5rem; margin-bottom: 15px; }
     
-    .contact-hero { margin-bottom: 20px; }
-    .phone-line { font-size: 1.3rem; font-weight: 800; color: var(--gold); text-decoration: none; display: block; margin-bottom: 2px; }
-    .phone-line span { font-weight: 600; color: #ffffff; margin-left: 5px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
-    .email-link { font-size: 0.9rem; color: #ffffff; opacity: 0.7; text-decoration: none; display: block; margin-top: 5px; }
+    .contact-hero { margin-bottom: 25px; }
+    .phone-line { font-size: 1.5rem; font-weight: 800; color: var(--gold); text-decoration: none; display: block; margin-bottom: 2px; }
+    .phone-line span { font-weight: 600; color: #ffffff; margin-left: 5px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2px; }
+    .email-link { font-size: 1rem; color: #ffffff; opacity: 0.8; text-decoration: none; display: block; margin-top: 8px; }
 
-    .flyer-bar { width: 100%; height: 2px; background: #ffffff; margin: 12px 0; position: relative; }
+    .flyer-bar { width: 100%; height: 2px; background: #ffffff; margin: 15px 0; position: relative; }
     .flyer-bar::before, .flyer-bar::after { content: ''; position: absolute; top: -4px; width: 2px; height: 10px; background: #ffffff; }
     .flyer-bar::before { left: 0; } .flyer-bar::after { right: 0; }
 
-    .plain-item { text-align: center; font-size: 1.1rem; font-weight: 700; padding: 2px 0; letter-spacing: 0.5px; text-transform: uppercase; }
+    .plain-item { text-align: center; font-size: 1.2rem; font-weight: 700; padding: 5px 0; letter-spacing: 0.5px; text-transform: uppercase; }
 
-    /* ── Perfectly Fitted Images ── */
-    .img-box { width: 85%; margin: 20px auto; border-radius: 12px; border: 1px solid var(--border); overflow: hidden; line-height: 0; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
-    .img-box img { width: 100%; height: auto; display: block; }
+    .menu-section { margin-top: 40px; text-align: center; }
+    .menu-title { font-size: 2.2rem; color: var(--gold); margin-bottom: 5px; }
+    .note { font-size: 12px; font-style: italic; opacity: 0.8; margin-bottom: 25px; display: block; }
 
-    .menu-section { margin-top: 30px; text-align: center; }
-    .menu-title { font-size: 1.8rem; color: var(--gold); margin-bottom: 2px; }
-    .note { font-size: 11px; font-style: italic; opacity: 0.7; margin-bottom: 15px; display: block; }
-
-    .list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 25px; }
-    .list li { font-size: 14px; font-weight: 600; color: #ffffff; }
+    .list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 35px; }
+    .list li { font-size: 16px; font-weight: 600; color: #ffffff; }
     .list li.popular::before { content: '* '; color: var(--gold); }
-    .list li small { color: var(--gold); font-weight: 500; font-size: 11px; margin-left: 3px; }
+    .list li small { color: var(--gold); font-weight: 500; font-size: 12px; margin-left: 3px; }
 
-    .fine-print { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); }
-    .fine-print p { font-size: 0.9rem; font-weight: 700; margin-bottom: 8px; color: #ffffff; }
+    .fine-print { text-align: center; margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--border); }
+    .fine-print p { font-size: 1rem; font-weight: 800; margin-bottom: 12px; color: #ffffff; }
 
-    footer { text-align: center; margin-top: 40px; }
-    .footer-meta { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.4; line-height: 1.8; }
+    footer { text-align: center; margin-top: 60px; }
+    .footer-meta { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.4; line-height: 2; }
 
-    /* ── Scaled Floating CTA ── */
     .cta {
-      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 100;
-      background: var(--gold); color: #000; padding: 10px 25px; border-radius: 999px;
-      font-weight: 800; text-decoration: none; text-transform: uppercase; font-size: 11px; letter-spacing: 1px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6); transition: 0.3s;
+      position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); z-index: 100;
+      background: var(--gold); color: #000; padding: 12px 30px; border-radius: 999px;
+      font-weight: 800; text-decoration: none; text-transform: uppercase; font-size: 12px; letter-spacing: 1px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6); transition: 0.3s; white-space: nowrap;
     }
     .cta:hover { transform: translateX(-50%) translateY(-2px); background: #ffffff; }
 
-    @media (max-width: 380px) {
-      .container { padding: 15px 10px; }
-      header h1 { font-size: 1.8rem; }
-      .phone-line { font-size: 1.1rem; }
+    @media (max-width: 400px) {
+      header h1 { font-size: 2.2rem; }
+      .phone-line { font-size: 1.3rem; }
     }
   </style>
 </head>
@@ -108,17 +102,9 @@
         </div>
       </header>
 
-      <div class="img-box">
-        <img src="grok-image-1f5c4514-6621-48c2-baca-105955c6edc2.png" alt="Sourdough Jars" />
-      </div>
-
       <div class="flyer-bar"></div>
       <div class="plain-item">Plain Sourdough Loaf - $8</div>
       <div class="flyer-bar"></div>
-
-      <div class="img-box">
-        <img src="grok-image-9b683a78-aa5d-49a9-be2e-6ba9f1fd6b18.png" alt="Perfect Loaf" />
-      </div>
 
       <div class="menu-section">
         <h2 class="cursive menu-title">Savory Loaves- $13</h2>
@@ -136,10 +122,6 @@
         </ul>
       </div>
 
-      <div class="img-box">
-        <img src="grok-image-a863ce89-1079-4299-be94-9d2f4a133bc3.png" alt="Dough Prep" />
-      </div>
-
       <div class="menu-section">
         <h2 class="cursive menu-title">Sweet Loaves- $13</h2>
         <ul class="list">
@@ -149,10 +131,6 @@
           <li class="popular">Cinnamon Brown Sugar Swirl <small>(can add apples)</small></li>
           <li>Lemon Blueberry</li>
         </ul>
-      </div>
-
-      <div class="img-box">
-        <img src="grok-image-98174780-faf4-44e6-81cd-4d413a0133a7.png" alt="Artisan Sourdough" />
       </div>
 
       <div class="fine-print">
@@ -165,7 +143,7 @@
           ESTABLISHED 2026 • CEDAR CITY, UTAH<br>
           HANDCRAFTED ARTISAN BAKERY
         </div>
-        <p style="font-size: 8px; margin-top: 20px; opacity: 0.3; letter-spacing: 2px;">DESIGN BY PAN-DIT PRESTIGE</p>
+        <p style="font-size: 9px; margin-top: 30px; opacity: 0.3; letter-spacing: 2px;">DESIGN BY PAN-DIT PRESTIGE</p>
       </footer>
     </div>
   </div>
