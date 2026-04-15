@@ -78,7 +78,23 @@
       text-shadow: 0 0 5px rgba(0, 245, 255, 0.5);
       animation: pulsate-turquoise 2s infinite alternate;
       display: inline-block;
+      vertical-align: middle;
     }
+    
+    /* Ghost Yellow Sunflower Glow */
+    .sunflower {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+      margin: 0 10px;
+      filter: drop-shadow(0 0 5px rgba(255, 255, 0, 0.5)) drop-shadow(0 0 15px rgba(255, 255, 0, 0.3));
+      animation: ghost-glow 3s infinite alternate;
+    }
+    @keyframes ghost-glow {
+      0% { filter: drop-shadow(0 0 5px rgba(255, 255, 0, 0.4)) opacity(0.8); transform: scale(1); }
+      100% { filter: drop-shadow(0 0 15px rgba(255, 255, 0, 0.7)) opacity(1); transform: scale(1.1); }
+    }
+
     @keyframes pulsate-turquoise {
       0% { text-shadow: 0 0 5px rgba(0, 245, 255, 0.5); transform: scale(1); }
       100% { text-shadow: 0 0 20px rgba(0, 245, 255, 1), 0 0 30px rgba(0, 245, 255, 0.6); transform: scale(1.05); }
@@ -273,7 +289,10 @@
       </div>
 
       <footer>
-        EST. 2026 • CEDAR CITY, UTAH • <span style="letter-spacing: 2px;">DESIGNED BY</span> <span class="kid-vicious">KiDViciouS</span>
+        EST. 2026 • CEDAR CITY, UTAH • <span style="letter-spacing: 2px;">DESIGNED BY</span> 
+        <svg class="sunflower" viewBox="0 0 24 24" fill="#FFD700"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20ZM12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17ZM12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12C15 13.6569 13.6569 15 12 15Z"/></svg>
+        <span class="kid-vicious">KiDViciouS</span>
+        <svg class="sunflower" viewBox="0 0 24 24" fill="#FFD700"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20ZM12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17ZM12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12C15 13.6569 13.6569 15 12 15Z"/></svg>
       </footer>
     </main>
   </div>
