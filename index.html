@@ -44,25 +44,31 @@
       box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 50px 100px rgba(0,0,0,0.5);
     }
     
-    /* Golden Shimmer */
-    .card::after {
-      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.03), transparent);
-      transform: rotate(45deg); pointer-events: none;
+    /* Glass Shimmering Effect for Text Tiles */
+    .card:not(.img-card)::after {
+      content: ''; position: absolute; top: -50%; left: -150%; width: 300%; height: 300%;
+      background: linear-gradient(105deg, 
+        transparent 45%, 
+        rgba(255, 255, 255, 0.05) 48%, 
+        rgba(255, 255, 255, 0.12) 50%, 
+        rgba(255, 255, 255, 0.05) 52%, 
+        transparent 55%);
+      transform: rotate(25deg);
+      pointer-events: none;
+      animation: glass-shimmer 8s infinite;
     }
-    .card.shimmer::after { animation: shine 6s infinite; }
-    @keyframes shine {
-      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-      20% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-    }
-    
-    .card:hover { 
-      transform: translateY(-5px); 
-      border-color: var(--teal); 
-      box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 20px var(--gold-glow), 0 0 15px var(--teal-glow); 
+    @keyframes glass-shimmer {
+      0% { transform: translateX(0) rotate(25deg); }
+      20% { transform: translateX(100%) rotate(25deg); }
+      100% { transform: translateX(100%) rotate(25deg); }
     }
 
+    .card:hover { 
+      transform: translateY(-8px); 
+      border-color: var(--teal); 
+      box-shadow: 0 40px 80px rgba(0,0,0,0.9), 0 0 25px var(--gold-glow), 0 0 20px var(--teal-glow); 
+    }
+    .p-40 { padding: 40px; }
     /* KiDViciouS Pulsate */
     .kid-vicious {
       color: #00f5ff;
