@@ -57,6 +57,20 @@
       border-color: var(--teal); 
       box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 20px var(--gold-glow), 0 0 15px var(--teal-glow); 
     }
+
+    /* KiDViciouS Pulsate */
+    .kid-vicious {
+      color: #00f5ff;
+      font-weight: 900;
+      text-shadow: 0 0 5px rgba(0, 245, 255, 0.5);
+      animation: pulsate-turquoise 2s infinite alternate;
+      display: inline-block;
+    }
+    @keyframes pulsate-turquoise {
+      0% { text-shadow: 0 0 5px rgba(0, 245, 255, 0.5); transform: scale(1); }
+      100% { text-shadow: 0 0 20px rgba(0, 245, 255, 1), 0 0 30px rgba(0, 245, 255, 0.6); transform: scale(1.05); }
+    }
+
     .p-40 { padding: 40px; }
     .span-2 { grid-column: span 2; } .span-3 { grid-column: span 3; }
     .row-2 { grid-row: span 2; }
@@ -239,7 +253,7 @@
       </div>
 
       <footer>
-        EST. 2026 • CEDAR CITY, UTAH • DESIGN BY PAN-DIT PRESTIGE
+        EST. 2026 • CEDAR CITY, UTAH • <span style="letter-spacing: 2px;">DESIGNED BY</span> <span class="kid-vicious">KiDViciouS</span>
       </footer>
     </main>
   </div>
