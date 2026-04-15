@@ -9,6 +9,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --bg: #020205; --gold: #f0c878; --gold-glow: rgba(240,200,120,0.3);
+      --teal: #4fd1c5; --teal-glow: rgba(79, 209, 197, 0.25);
       --glass: rgba(18, 18, 30, 0.8); --border: rgba(255, 255, 255, 0.12); --r-xl: 32px;
     }
     html { scroll-behavior: smooth; }
@@ -17,7 +18,7 @@
     /* Background FX */
     .ambient { position: fixed; inset: 0; z-index: 0; pointer-events: none;
       background: radial-gradient(circle at 10% 10%, rgba(240,200,120,0.1) 0%, transparent 40%),
-                  radial-gradient(circle at 90% 90%, rgba(80,70,180,0.08) 0%, transparent 40%);
+                  radial-gradient(circle at 90% 90%, var(--teal-glow) 0%, transparent 40%);
       animation: drift 20s infinite alternate;
     }
     @keyframes drift {
@@ -51,7 +52,11 @@
       100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
     }
     
-    .card:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 20px var(--gold-glow); }
+    .card:hover { 
+      transform: translateY(-5px); 
+      border-color: var(--teal); 
+      box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 20px var(--gold-glow), 0 0 15px var(--teal-glow); 
+    }
     .p-40 { padding: 40px; }
     .span-2 { grid-column: span 2; } .span-3 { grid-column: span 3; }
     .row-2 { grid-row: span 2; }
