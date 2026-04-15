@@ -82,25 +82,43 @@
       .span-3 { grid-column: span 2; } 
     }
     @media (max-width: 600px) { 
-      .page { padding: 10px 15px 140px; }
-      header { padding: 30px 0; }
-      header h1 { font-size: 2.2rem; line-height: 1.1; margin-bottom: 15px; }
-      .contact-links { flex-direction: column; gap: 10px; font-size: 0.9rem; }
-      .bento { grid-template-columns: 1fr; gap: 15px; margin-top: 20px; } 
-      .card.p-40 { padding: 25px 20px; }
-      .span-2, .span-3, .row-2 { grid-column: span 1 !important; grid-row: auto !important; } 
-      .category-title { font-size: 1.25rem; margin-bottom: 15px; }
-      .flavor-list li { font-size: 1.05rem; margin-bottom: 10px; }
-      .plain-banner { font-size: 1.1rem; min-height: auto; padding: 20px; }
+      .page { padding: 10px 15px 100px; }
+      header { padding: 40px 0 20px; }
+      header h1 { font-size: 2.2rem; line-height: 1.1; margin-bottom: 10px; }
+      .contact-links { flex-direction: column; gap: 8px; font-size: 0.85rem; }
+      
+      /* Switch Grid to Flex for foolproof stacking */
+      .bento { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; } 
+      
+      .card { width: 100% !important; grid-column: auto !important; grid-row: auto !important; min-height: auto !important; }
+      .card.p-40 { padding: 30px 20px; }
+      
+      .category-title { font-size: 1.2rem; margin-bottom: 15px; }
+      .flavor-list li { font-size: 1rem; margin-bottom: 8px; }
+      .plain-banner { font-size: 1.1rem; padding: 25px 15px; order: 2; } /* Move plain loaf higher in stack */
+      .about-card { order: 1; }
+      
       .img-card { 
         aspect-ratio: 16 / 9 !important; 
         max-width: 100%; 
-        margin: 5px 0; 
-        transform: rotate(0deg) !important; 
-        border-radius: 20px; 
+        transform: none !important; 
+        margin: 0;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
       }
-      .about-card p { font-size: 1.05rem; }
-      .fab { left: 10px; right: 10px; bottom: 10px; padding: 15px; font-size: 0.85rem; text-align: center; border-radius: 50px; } 
+      
+      .fab { 
+        position: fixed; 
+        left: 20px; 
+        right: 20px; 
+        bottom: 20px; 
+        width: calc(100% - 40px);
+        padding: 16px; 
+        font-size: 0.9rem; 
+        border-radius: 50px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      } 
     }
   </style>
 </head>
