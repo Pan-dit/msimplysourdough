@@ -15,15 +15,18 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'Outfit', sans-serif; background: var(--bg); color: #fff; line-height: 1.6; overflow-x: hidden; }
 
-    /* Background FX */
+    /* Background FX - Reflective Marble */
     .ambient { position: fixed; inset: 0; z-index: 0; pointer-events: none;
-      background: radial-gradient(circle at 10% 10%, rgba(240,200,120,0.1) 0%, transparent 40%),
-                  radial-gradient(circle at 90% 90%, var(--teal-glow) 0%, transparent 40%);
-      animation: drift 20s infinite alternate;
+      background: 
+        linear-gradient(rgba(2, 2, 5, 0.7), rgba(2, 2, 5, 0.7)),
+        url("https://www.transparenttextures.com/patterns/black-marble.png"),
+        #020205;
+      background-size: 400px;
     }
-    @keyframes drift {
-      0% { transform: scale(1) translate(0,0); }
-      100% { transform: scale(1.1) translate(2%, 2%); }
+    .ambient::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 40%, rgba(255,255,255,0.02) 100%);
+      pointer-events: none;
     }
     .grain { position: fixed; inset: 0; z-index: 1; opacity: 0.03; pointer-events: none;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -33,10 +36,12 @@
     .cursive { font-family: 'Great Vibes', cursive; }
 
     /* Bento Grid */
-    .bento { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+    .bento { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
     .card { position: relative; background: var(--glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--border); border-radius: var(--r-xl); overflow: hidden;
       display: flex; flex-direction: column; transition: 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+      /* Heavy Black Drop Shadows for Floating Look */
+      box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 50px 100px rgba(0,0,0,0.5);
     }
     
     /* Golden Shimmer */
@@ -79,7 +84,14 @@
 
     /* Header */
     header { text-align: center; padding: 60px 0; grid-column: span 3; }
-    header h1 { font-size: clamp(3.5rem, 10vw, 6rem); font-weight: 400; margin-bottom: 20px; filter: drop-shadow(0 0 20px rgba(255,255,255,0.2)); }
+    header h1 { 
+      font-size: clamp(3.5rem, 10vw, 6rem); 
+      font-weight: 400; 
+      margin-bottom: 20px; 
+      /* Turquoise Glow + Black Drop Shadow */
+      color: #fff;
+      text-shadow: 0 0 15px rgba(0, 245, 255, 0.8), 0 0 30px rgba(0, 245, 255, 0.4), 8px 8px 15px rgba(0,0,0,1);
+    }
     .contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; font-weight: 600; }
     .contact-links a { color: #fff; text-decoration: none; transition: 0.3s; }
     .contact-links a:hover { color: var(--gold); }
